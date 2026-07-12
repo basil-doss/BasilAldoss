@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basil Aldoss, Portfolio</title>
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-light: #2E5090;
+    --accent: #E07A3F;
+    --ink: #1c2530;
+    --muted: #5b6472;
+    --bg: #ffffff;
+    --bg-soft: #f5f7fa;
+    --line: #e3e7ee;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; }
+
+  /* NAV */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 940px; margin: 0 auto; padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-inner .brand { font-weight: 700; color: var(--navy); letter-spacing: 0.3px; }
+  .nav-links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
+  .nav-links a { color: var(--muted); transition: color .15s; }
+  .nav-links a:hover { color: var(--navy); }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+    background: linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner {
+    display: flex; align-items: center; gap: 36px; flex-wrap: wrap;
+  }
+  .avatar {
+    width: 108px; height: 108px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: white; display: flex; align-items: center; justify-content: center;
+    font-size: 40px; font-weight: 700; flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(31,56,100,0.25);
+  }
+  .hero h1 { font-size: 34px; color: var(--navy); margin-bottom: 6px; }
+  .hero .tagline { font-size: 17px; color: var(--muted); margin-bottom: 14px; max-width: 520px; }
+  .hero .meta { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 999px;
+    font-size: 14px; font-weight: 600; transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary { background: var(--navy); color: #fff; }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(31,56,100,0.3); }
+  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+
+  /* SECTIONS */
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  .eyebrow {
+    font-size: 12.5px; font-weight: 700; letter-spacing: 1.2px; color: var(--accent);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  h2.section-title { font-size: 24px; color: var(--navy); margin-bottom: 22px; }
+  p.lede { font-size: 16px; color: var(--ink); max-width: 680px; }
+  p.lede + p.lede { margin-top: 14px; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .skill-card h3 { font-size: 14.5px; color: var(--navy); margin-bottom: 8px; }
+  .skill-card p { font-size: 13.5px; color: var(--muted); }
+
+  /* EXPERIENCE */
+  .timeline-item { padding: 0 0 26px 24px; border-left: 2px solid var(--line); position: relative; margin-left: 6px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: ""; position: absolute; left: -7px; top: 4px;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+    border: 3px solid #fff; box-shadow: 0 0 0 2px var(--line);
+  }
+  .role-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .role-head h3 { font-size: 16.5px; color: var(--ink); }
+  .role-head .dates { font-size: 13px; color: var(--muted); font-style: italic; white-space: nowrap; }
+  .role-loc { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; }
+  ul.bullets { padding-left: 18px; }
+  ul.bullets li { font-size: 14.5px; color: var(--ink); margin-bottom: 5px; }
+
+  .additional { margin-top: 30px; }
+  .additional h3 { font-size: 14px; color: var(--navy); margin-bottom: 10px; }
+  .add-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; font-size: 14px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .add-row:last-child { border-bottom: none; }
+  .add-row .role { font-weight: 600; }
+  .add-row .dates { color: var(--muted); font-size: 12.5px; }
+
+  /* PROJECTS */
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .project-card {
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+    background: #fff; transition: box-shadow .15s, transform .15s;
+  }
+  .project-card:hover { box-shadow: 0 10px 30px rgba(31,56,100,0.1); transform: translateY(-2px); }
+  .project-icon {
+    width: 40px; height: 40px; border-radius: 10px; background: var(--bg-soft);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+    color: var(--navy); font-size: 19px; font-weight: 700;
+  }
+  .project-card h3 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+  .project-card .proj-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+  .project-card ul.bullets li { font-size: 13.5px; }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+  .tag {
+    font-size: 11.5px; font-weight: 600; color: var(--navy); background: #eef2f8;
+    padding: 4px 10px; border-radius: 999px;
+  }
+
+  /* EDUCATION */
+  .edu-card { background: var(--bg-soft); border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); }
+  .edu-card h3 { font-size: 17px; color: var(--navy); }
+  .edu-card .sub { font-size: 14px; color: var(--muted); margin: 4px 0 12px; }
+  .cert-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13.5px; }
+  .cert-row .name { font-weight: 600; }
+  .cert-row .provider { color: var(--muted); font-size: 12.5px; }
+
+  /* COMMUNITY */
+  .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .community-card { padding: 20px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); }
+  .community-card h3 { font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+  .community-card p { font-size: 13.5px; color: var(--ink); }
+  .badge-row { display: flex; gap: 8px; margin-top: 30px; flex-wrap: wrap; }
+  .badge { font-size: 12.5px; font-weight: 600; background: var(--bg-soft); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; color: var(--muted); }
+
+  /* FOOTER */
+  footer { padding: 48px 0 60px; text-align: center; }
+  footer .btn-row { justify-content: center; margin-bottom: 18px; }
+  footer p { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Basil Aldoss</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#community">Community</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="avatar">BA</div>
+    <div>
+      <h1>Basil Aldoss</h1>
+      <p style="font-size:14px; font-weight:600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px;">Automation & Test Engineering &nbsp;•&nbsp; Product Design Engineering</p>
+      <p class="tagline">Mechanical engineering student who's tested, automated, and designed physical systems, from sensor-driven data collection to CAD-modeled components, looking for hands-on engineering work.</p>
+      <p class="meta">Iowa City, IA &nbsp;•&nbsp; B.S.E. Mechanical Engineering, University of Iowa, Dec 2026</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Email Me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2 class="section-title">A bit about me</h2>
+    <p class="lede">I'm a mechanical engineering student at the University of Iowa focused on robotics and automation, currently interning at Schneider Electric. I like problems I can get my hands on: writing a Python script to pull data out of a stack of PDF test reports, 3D-printing a fixture that finally makes a measurement repeatable, or figuring out why a machine is throwing bad parts.</p>
+    <p class="lede">Outside of coursework, I'm bilingual in Arabic and English, mentor first-generation engineering students through the National Society of Black Engineers, and tutor English in my community. I'm looking for full-time engineering roles where I can keep working hands-on with real hardware, whether that's testing and automating equipment or designing the components themselves.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Automation & Controls</h3>
+        <p>MQTT, sensors, actuators, motor-driver/motion control, Raspberry Pi Pico 2W</p>
+      </div>
+      <div class="skill-card">
+        <h3>CAD & Design</h3>
+        <p>Creo Parametric: parametric modeling, assemblies, GD&T, manufacturable geometry, engineering drawings</p>
+      </div>
+      <div class="skill-card">
+        <h3>Data & Analysis</h3>
+        <p>Python, MATLAB/Simulink, SQL, Minitab, Microsoft Excel</p>
+      </div>
+      <div class="skill-card">
+        <h3>Vision & Quality</h3>
+        <p>Keyence VR-Series optical profilometry, AI-based visual inspection systems, root-cause & defect analysis</p>
+      </div>
+      <div class="skill-card">
+        <h3>Methods</h3>
+        <p>Lean/5S, Six Sigma fundamentals, structured testing, rapid prototyping & 3D printing</p>
+      </div>
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>English (native), Arabic (bilingual, used for community translation & tutoring)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2 class="section-title">Where I've Worked</h2>
+
+    <div class="timeline-item">
+      <div class="role-head">
+        <h3>Mechanical Engineering Intern, Schneider Electric</h3>
+        <span class="dates">May 2026 – Present</span>
+      </div>
+      <div class="role-loc">Cedar Rapids, IA</div>
+      <ul class="bullets">
+        <li>Support UL 489 circuit breaker validation testing: calibration, overload, endurance, interrupting ability, and dielectric voltage withstand testing</li>
+        <li>Built a Python workflow to extract key values from PDF oscillograms and test reports into structured Excel files, cutting manual review time on repeated test data</li>
+        <li>Collect and analyze breaker test data to identify trip behavior, component wear, and failure patterns; document findings to support root-cause analysis and compliance review</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="role-head">
+        <h3>Manufacturing Engineering Co-op, Schneider Electric</h3>
+        <span class="dates">Jan 2025 – Aug 2025</span>
+      </div>
+      <div class="role-loc">Cedar Rapids, IA</div>
+      <ul class="bullets">
+        <li>Programmed and operated a Keyence VR-Series 3D optical profilometer for high-precision, non-contact measurement of manufactured parts</li>
+        <li>Supported setup and qualification of an AI-based visual inspection system to detect defects and improve production visibility</li>
+        <li>Designed and 3D-printed a custom fixture to standardize part spacing during scanning, improving measurement repeatability and cutting setup time</li>
+        <li>Analyzed quality inspection data to correlate defect patterns with die wear, informing tooling-change decisions</li>
+        <li>Led a 5S workplace committee initiative; standardized layouts and labeling to reduce search/setup time and sustain weekly audit compliance</li>
+      </ul>
+    </div>
+
+    <div class="additional">
+      <h3>Hands-On Roots</h3>
+      <div class="add-row">
+        <span class="role">Quick Lube Technician, Billion Auto Chevrolet GMC</span>
+        <span class="dates">Sep 2025 – Present</span>
+      </div>
+      <div class="add-row">
+        <span class="role">Auto Service Technician, Walmart Inc. (cut service time 50% via workflow redesign)</span>
+        <span class="dates">Oct 2021 – Oct 2024</span>
+      </div>
+      <div class="add-row">
+        <span class="role">Co-Founder, Auto Detailer, Auto Revivals</span>
+        <span class="dates">Jul 2022 – Jul 2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Projects</div>
+    <h2 class="section-title">Things I've Built</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-icon">IoT</div>
+        <h3>Industrial IoT Lab Series</h3>
+        <div class="proj-sub">University of Iowa</div>
+        <ul class="bullets">
+          <li>Built embedded sensing and actuation systems on a Raspberry Pi Pico 2W, integrating temperature, ultrasonic, and motor-driver modules</li>
+          <li>Used MQTT-based communication to transmit device data; applied automation and process-monitoring principles to connected systems</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Raspberry Pi Pico 2W</span>
+          <span class="tag">MQTT</span>
+          <span class="tag">Sensors</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-icon">CAD</div>
+        <h3>Truck Steering & Suspension Component Design</h3>
+        <div class="proj-sub">University of Iowa, Product Design & Realization</div>
+        <ul class="bullets">
+          <li>Modeled an axle, knuckle, and steer arm in Creo Parametric using swept blends, ribs, drafts, and helical sweeps for manufacturable geometry</li>
+          <li>Created dimensioned engineering drawings and built/evaluated assemblies to verify fit, interfaces, and clearances</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Creo Parametric</span>
+          <span class="tag">GD&T</span>
+          <span class="tag">Assemblies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2 class="section-title">Education & Certifications</h2>
+    <div class="edu-card">
+      <h3>University of Iowa, Iowa City, IA</h3>
+      <div class="sub">B.S.E. Mechanical Engineering, Focus: Robotics and Autonomous Systems &nbsp;|&nbsp; Dec 2026</div>
+      <p style="font-size:13.5px; color: var(--muted); margin-bottom: 16px;">Relevant coursework: Mechanical Design, Manufacturing Processes, Controls of Mechanical Engineering, Engineering Instrumentation, Scientific Computing & Machine Learning, Product Design and Realization, Data-Driven Analysis</p>
+
+      <div class="cert-row">
+        <span class="name">Learn PLC and HMI from Scratch</span>
+        <span class="provider">Coursera, in progress</span>
+      </div>
+      <div class="cert-row">
+        <span class="name">Introduction to Geometric Dimensioning and Tolerancing</span>
+        <span class="provider">LinkedIn Learning, May 2026</span>
+      </div>
+      <div class="cert-row">
+        <span class="name">Lean Six Sigma Foundations</span>
+        <span class="provider">LinkedIn Learning, Feb 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="community">
+  <div class="wrap">
+    <div class="eyebrow">Community</div>
+    <h2 class="section-title">Outside of Engineering</h2>
+    <div class="community-grid">
+      <div class="community-card">
+        <h3>National Society of Black Engineers (NSBE)</h3>
+        <p>Member since 2021, help organize and lead workshops introducing first-generation college students to STEM fields, and support Black Girls Do Science outreach to inspire younger students toward engineering.</p>
+      </div>
+      <div class="community-card">
+        <h3>Iowa City Compassion, Tutor</h3>
+        <p>Tutor Arabic-speaking students in English, focusing on grammar, pronunciation, and everyday communication, and help translate/interpret for new community members adjusting to local life.</p>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge">Bilingual: Arabic & English</span>
+      <span class="badge">STEM Mentor</span>
+      <span class="badge">Community Tutor</span>
+      <span class="badge">Small Business Founder</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center;">Contact</div>
+    <h2 class="section-title" style="text-align:center;">Let's Talk</h2>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Basil.taldoss@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">linkedin.com/in/basil-aldoss</a>
+    </div>
+    <p>Iowa City, IA. Open to full-time roles in automation, test, and design/product engineering.</p>
+  </div>
+</footer>
+
+</body>
+</html>
