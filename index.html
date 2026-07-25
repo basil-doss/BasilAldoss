@@ -60,10 +60,10 @@
   .nav-toggle {
     display: none;
     background: none; border: none; cursor: pointer;
-    width: 32px; height: 32px; padding: 4px;
-    flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 4px;
+    flex-direction: column; justify-content: center; align-items: center; gap: 5px;
   }
-  .nav-toggle span { display: block; height: 2px; background: var(--navy); border-radius: 2px; }
+  .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--navy); border-radius: 2px; }
 
   @media (max-width: 600px) {
     .nav-toggle { display: flex; }
@@ -194,6 +194,18 @@
   footer { padding: 48px 0 60px; text-align: center; }
   footer .btn-row { justify-content: center; margin-bottom: 18px; }
   footer p { font-size: 13px; color: var(--muted); }
+
+  .coursework { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; }
+  .center { text-align: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      transition-duration: 0.001ms !important;
+      animation-duration: 0.001ms !important;
+    }
+    .btn-primary:hover, .project-card:hover { transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -382,7 +394,7 @@
     <div class="edu-card">
       <h3>University of Iowa, Iowa City, IA</h3>
       <div class="sub">B.S.E. Mechanical Engineering, Focus: Robotics and Autonomous Systems &nbsp;|&nbsp; Dec 2026</div>
-      <p style="font-size:13.5px; color: var(--muted); margin-bottom: 16px;">Relevant coursework: Mechanical Design, Manufacturing Processes, Controls of Mechanical Engineering, Engineering Instrumentation, Scientific Computing & Machine Learning, Product Design and Realization, Data-Driven Analysis</p>
+      <p class="coursework">Relevant coursework: Mechanical Design, Manufacturing Processes, Controls of Mechanical Engineering, Engineering Instrumentation, Scientific Computing & Machine Learning, Product Design and Realization, Data-Driven Analysis</p>
 
       <div class="cert-row">
         <span class="name">Learn PLC and HMI from Scratch</span>
@@ -425,8 +437,8 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="text-align:center;">Contact</div>
-    <h2 class="section-title" style="text-align:center;">Let's Talk</h2>
+    <div class="eyebrow center">Contact</div>
+    <h2 class="section-title center">Let's Talk</h2>
     <div class="btn-row">
       <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Basil.taldoss@gmail.com</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">linkedin.com/in/basil-aldoss</a>
