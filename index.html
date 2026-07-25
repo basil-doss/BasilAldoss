@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Basil Aldoss, Portfolio</title>
+<meta name="description" content="Basil Aldoss - Mechanical engineering student at the University of Iowa specializing in automation, test engineering, and product design. Experience with UL 489 testing, CAD, robotics, and CV data pipelines.">
+<meta property="og:title" content="Basil Aldoss, Portfolio">
+<meta property="og:description" content="Mechanical engineering student focused on automation, test engineering, and product design. Currently interning at Schneider Electric.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://basil-aldoss.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basil Aldoss, Portfolio">
+<meta name="twitter:description" content="Mechanical engineering student focused on automation, test engineering, and product design.">
 <style>
   :root {
     --navy: #1F3864;
@@ -27,6 +35,12 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; }
 
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
   /* NAV */
   header.nav {
     position: sticky; top: 0; z-index: 50;
@@ -42,8 +56,27 @@
   .nav-links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
   .nav-links a { color: var(--muted); transition: color .15s; }
   .nav-links a:hover { color: var(--navy); }
+
+  .nav-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 32px; height: 32px; padding: 4px;
+    flex-direction: column; justify-content: center; gap: 5px;
+  }
+  .nav-toggle span { display: block; height: 2px; background: var(--navy); border-radius: 2px; }
+
   @media (max-width: 600px) {
-    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: #fff; border-bottom: 1px solid var(--line);
+      padding: 8px 28px 14px;
+    }
+    .nav-links a { padding: 10px 0; border-top: 1px solid var(--line); }
+    .nav-links a:first-child { border-top: none; }
+    .nav-links.open { display: flex; }
   }
 
   /* HERO */
@@ -168,7 +201,10 @@
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">Basil Aldoss</div>
-    <nav class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
@@ -179,13 +215,26 @@
     </nav>
   </div>
 </header>
+<script>
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', function () {
+    var isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="avatar">BA</div>
     <div>
       <h1>Basil Aldoss</h1>
-      <p style="font-size:14px; font-weight:600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 10px;">Automation & Test Engineering &nbsp;•&nbsp; Product Design Engineering</p>
       <p class="tagline">Mechanical engineering student who's tested, automated, and designed physical systems, from sensor-driven data collection to CAD-modeled components, looking for hands-on engineering work.</p>
       <p class="meta">Iowa City, IA &nbsp;•&nbsp; B.S.E. Mechanical Engineering, University of Iowa, Dec 2026</p>
       <div class="btn-row">
