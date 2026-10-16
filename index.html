@@ -12,209 +12,27 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Basil Aldoss, Portfolio">
 <meta name="twitter:description" content="Mechanical engineering student focused on automation, test engineering, and product design.">
-<style>
-  :root {
-    --navy: #1F3864;
-    --navy-light: #2E5090;
-    --accent: #E07A3F;
-    --ink: #1c2530;
-    --muted: #5b6472;
-    --bg: #ffffff;
-    --bg-soft: #f5f7fa;
-    --line: #e3e7ee;
-    --radius: 14px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.6;
-  }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 940px; margin: 0 auto; padding: 0 28px; }
-
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
-  /* NAV */
-  header.nav {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: 940px; margin: 0 auto; padding: 14px 28px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-inner .brand { font-weight: 700; color: var(--navy); letter-spacing: 0.3px; }
-  .nav-links { display: flex; gap: 22px; font-size: 14px; font-weight: 500; }
-  .nav-links a { color: var(--muted); transition: color .15s; }
-  .nav-links a:hover { color: var(--navy); }
-
-  .nav-toggle {
-    display: none;
-    background: none; border: none; cursor: pointer;
-    width: 44px; height: 44px; padding: 4px;
-    flex-direction: column; justify-content: center; align-items: center; gap: 5px;
-  }
-  .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--navy); border-radius: 2px; }
-
-  @media (max-width: 600px) {
-    .nav-toggle { display: flex; }
-    .nav-links {
-      display: none;
-      position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; gap: 0;
-      background: #fff; border-bottom: 1px solid var(--line);
-      padding: 8px 28px 14px;
-    }
-    .nav-links a { padding: 10px 0; border-top: 1px solid var(--line); }
-    .nav-links a:first-child { border-top: none; }
-    .nav-links.open { display: flex; }
-  }
-
-  /* HERO */
-  .hero {
-    padding: 72px 0 56px;
-    background: linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 100%);
-    border-bottom: 1px solid var(--line);
-  }
-  .hero-inner {
-    display: flex; align-items: center; gap: 36px; flex-wrap: wrap;
-  }
-  .avatar {
-    width: 108px; height: 108px; border-radius: 50%;
-    flex-shrink: 0; object-fit: cover; display: block;
-    box-shadow: 0 8px 24px rgba(31,56,100,0.25);
-  }
-  .hero h1 { font-size: 34px; color: var(--navy); margin-bottom: 6px; }
-  .hero .tagline { font-size: 17px; color: var(--muted); margin-bottom: 14px; max-width: 520px; }
-  .hero .meta { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 10px 20px; border-radius: 999px;
-    font-size: 14px; font-weight: 600; transition: transform .15s, box-shadow .15s;
-  }
-  .btn-primary { background: var(--navy); color: #fff; }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(31,56,100,0.3); }
-  .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
-
-  /* SECTIONS */
-  section { padding: 56px 0; }
-  section + section { border-top: 1px solid var(--line); }
-  .eyebrow {
-    font-size: 12.5px; font-weight: 700; letter-spacing: 1.2px; color: var(--accent);
-    text-transform: uppercase; margin-bottom: 8px;
-  }
-  h2.section-title { font-size: 24px; color: var(--navy); margin-bottom: 22px; }
-  p.lede { font-size: 16px; color: var(--ink); max-width: 680px; }
-  p.lede + p.lede { margin-top: 14px; }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-  .skill-card {
-    background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .skill-card h3 { font-size: 14.5px; color: var(--navy); margin-bottom: 8px; }
-  .skill-card p { font-size: 13.5px; color: var(--muted); }
-
-  /* EXPERIENCE */
-  .timeline-item { padding: 0 0 26px 24px; border-left: 2px solid var(--line); position: relative; margin-left: 6px; }
-  .timeline-item:last-child { padding-bottom: 0; }
-  .timeline-item::before {
-    content: ""; position: absolute; left: -7px; top: 4px;
-    width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
-    border: 3px solid #fff; box-shadow: 0 0 0 2px var(--line);
-  }
-  .role-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
-  .role-head h3 { font-size: 16.5px; color: var(--ink); }
-  .role-head .dates { font-size: 13px; color: var(--muted); font-style: italic; white-space: nowrap; }
-  .role-loc { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; }
-  ul.bullets { padding-left: 18px; }
-  ul.bullets li { font-size: 14.5px; color: var(--ink); margin-bottom: 5px; }
-
-  .additional { margin-top: 30px; }
-  .additional h3 { font-size: 14px; color: var(--navy); margin-bottom: 10px; }
-  .add-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; font-size: 14px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
-  .add-row:last-child { border-bottom: none; }
-  .add-row .role { font-weight: 600; }
-  .add-row .dates { color: var(--muted); font-size: 12.5px; }
-
-  /* PROJECTS */
-  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-  .project-card {
-    border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
-    background: #fff; transition: box-shadow .15s, transform .15s;
-  }
-  .project-card:hover { box-shadow: 0 10px 30px rgba(31,56,100,0.1); transform: translateY(-2px); }
-  .project-icon {
-    width: 40px; height: 40px; border-radius: 10px; background: var(--bg-soft);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
-    color: var(--navy); font-size: 19px; font-weight: 700;
-  }
-  .project-card h3 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
-  .project-card .proj-sub { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
-  .project-card ul.bullets li { font-size: 13.5px; }
-  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
-  .tag {
-    font-size: 11.5px; font-weight: 600; color: var(--navy); background: #eef2f8;
-    padding: 4px 10px; border-radius: 999px;
-  }
-
-  /* EDUCATION */
-  .edu-card { background: var(--bg-soft); border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); }
-  .edu-card h3 { font-size: 17px; color: var(--navy); }
-  .edu-card .sub { font-size: 14px; color: var(--muted); margin: 4px 0 12px; }
-  .cert-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 13.5px; }
-  .cert-row .name { font-weight: 600; }
-  .cert-row .provider { color: var(--muted); font-size: 12.5px; }
-
-  /* COMMUNITY */
-  .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-  .community-card { padding: 20px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); }
-  .community-card h3 { font-size: 15px; color: var(--navy); margin-bottom: 8px; }
-  .community-card p { font-size: 13.5px; color: var(--ink); }
-  .badge-row { display: flex; gap: 8px; margin-top: 30px; flex-wrap: wrap; }
-  .badge { font-size: 12.5px; font-weight: 600; background: var(--bg-soft); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; color: var(--muted); }
-
-  /* FOOTER */
-  footer { padding: 48px 0 60px; text-align: center; }
-  footer .btn-row { justify-content: center; margin-bottom: 18px; }
-  footer p { font-size: 13px; color: var(--muted); }
-
-  .coursework { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; }
-  .center { text-align: center; }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after {
-      transition-duration: 0.001ms !important;
-      animation-duration: 0.001ms !important;
-    }
-    .btn-primary:hover, .project-card:hover { transform: none; }
-  }
-</style>
+<meta name="theme-color" content="#080d13">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/styles.css">
+<script src="./assets/site.js" defer></script>
+<noscript><style>.engine-controls,.motion-toggle{display:none}.nav{position:static}.nav-inner{flex-wrap:wrap;padding-block:16px}.nav-toggle{display:none}.nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:16px;padding:0;background:none;border:0}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<canvas id="starfield" aria-hidden="true"></canvas>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="nav">
-  <div class="nav-inner">
-    <div class="brand">Basil Aldoss</div>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Basil Aldoss, back to top">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2 30 16 16 30 2 16Z" stroke="currentColor"/><path d="M9 21V11h5a2.5 2.5 0 0 1 0 5H9m5 0a2.5 2.5 0 0 1 0 5H9m11 0 3-10 3 10m-5-3h4" stroke="currentColor" stroke-width="1.2"/></svg>
+      Basil Aldoss<span>.</span>
+    </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
@@ -225,75 +43,196 @@
     </nav>
   </div>
 </header>
-<script>
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', function () {
-    var isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
-
-<section class="hero">
+<main id="main" tabindex="-1">
+<section class="hero" id="top" tabindex="-1" aria-label="Introduction">
   <div class="wrap hero-inner">
-    <img class="avatar" src="./assets/headshot.jpg" width="108" height="108" alt="Basil Aldoss" />
-    <div>
-      <h1>Basil Aldoss</h1>
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="status-dot" aria-hidden="true"></span> Mechanical engineering / Portfolio</div>
+      <h1>Basil<br><span>Aldoss.</span></h1>
       <p class="tagline">Mechanical engineering student who's tested, automated, and designed physical systems, from sensor-driven data collection to CAD-modeled components.</p>
       <p class="meta">Iowa City, IA &nbsp;•&nbsp; B.S.E. Mechanical Engineering, University of Iowa, Dec 2026</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Email Me</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-primary" href="#projects">Explore my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+        <a class="btn btn-ghost" href="#contact">Get in touch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
       </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="engine-art" id="engine" viewBox="0 0 520 500" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="engineMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1a3837"/><stop offset=".45" stop-color="#47756a"/><stop offset="1" stop-color="#142d31"/></linearGradient>
+          <radialGradient id="engineHalo"><stop stop-color="#79d7bc" stop-opacity=".08"/><stop offset="1" stop-color="#79d7bc" stop-opacity="0"/></radialGradient>
+          <pattern id="engineGrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" stroke="#7cb09d" stroke-opacity=".06" stroke-width=".7"/></pattern>
+        </defs>
+        <circle cx="260" cy="260" r="237" fill="url(#engineHalo)"/>
+        <rect x="48" y="66" width="424" height="374" fill="url(#engineGrid)"/>
+        <path d="M54 93V73h20m372 0h20v20M54 410v20h20m372 0h20v-20" stroke="#6a9a8b" stroke-opacity=".5" stroke-width=".8"/>
+        <text x="78" y="82" fill="#91baad" font-family="monospace" font-size="8" letter-spacing="1.5">INLINE-4 / KINEMATIC STUDY</text>
+        <path d="M88 150v136l-20 22v59l24 25h330l22-25v-59l-20-22V150" fill="#0b1920" fill-opacity=".7" stroke="#41635d" stroke-width="1"/>
+        <path d="M103 294h307m-307 89h307" stroke="#638c7f" stroke-opacity=".35"/>
+        <rect x="82" y="105" width="348" height="45" rx="5" fill="#102027" stroke="#6d9788" stroke-width="1"/>
+        <path d="M82 114h348m-348 28h348" stroke="#80b69d" stroke-opacity=".3"/>
+        <g fill="#0a1219" stroke="#7eaa97" stroke-width=".7">
+          <circle cx="94" cy="126" r="3"/><circle cx="167" cy="126" r="3"/><circle cx="252" cy="126" r="3"/><circle cx="337" cy="126" r="3"/><circle cx="418" cy="126" r="3"/>
+        </g>
+        <path d="M62 340h414" stroke="#547d70" stroke-width="8"/>
+        <path d="M62 338h414" stroke="#a5f2d4" stroke-opacity=".35" stroke-width="1"/>
+        <g class="engine-cylinder" data-cylinder="0" data-center="125">
+          <path d="M96 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
+          <path d="M100 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
+          <path d="M125 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
+          <g data-crank-web transform="translate(125 340) rotate(-37.242)">
+            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
+            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
+            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
+          </g>
+          <line data-rod-outline x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
+          <line data-rod x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
+          <line data-rod-highlight x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
+          <g data-big-end transform="translate(139.524 359.106)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
+          <g data-piston transform="translate(125 249.060)">
+            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
+            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
+            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
+            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
+          </g>
+          <text x="125" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">01</text>
+        </g>
+        <g class="engine-cylinder" data-cylinder="1" data-center="210">
+          <path d="M181 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
+          <path d="M185 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
+          <path d="M210 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
+          <g data-crank-web transform="translate(210 340) rotate(-217.242)">
+            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
+            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
+            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
+          </g>
+          <line data-rod-outline x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
+          <line data-rod x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
+          <line data-rod-highlight x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
+          <g data-big-end transform="translate(195.476 320.894)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
+          <g data-piston transform="translate(210 210.848)">
+            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
+            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
+            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
+            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
+          </g>
+          <text x="210" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">02</text>
+        </g>
+        <g class="engine-cylinder" data-cylinder="2" data-center="295">
+          <path d="M266 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
+          <path d="M270 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
+          <path d="M295 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
+          <g data-crank-web transform="translate(295 340) rotate(-217.242)">
+            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
+            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
+            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
+          </g>
+          <line data-rod-outline x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
+          <line data-rod x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
+          <line data-rod-highlight x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
+          <g data-big-end transform="translate(280.476 320.894)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
+          <g data-piston transform="translate(295 210.848)">
+            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
+            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
+            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
+            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
+          </g>
+          <text x="295" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">03</text>
+        </g>
+        <g class="engine-cylinder" data-cylinder="3" data-center="380">
+          <path d="M351 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
+          <path d="M355 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
+          <path d="M380 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
+          <g data-crank-web transform="translate(380 340) rotate(-37.242)">
+            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
+            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
+            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
+          </g>
+          <line data-rod-outline x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
+          <line data-rod x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
+          <line data-rod-highlight x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
+          <g data-big-end transform="translate(394.524 359.106)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
+          <g data-piston transform="translate(380 249.060)">
+            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
+            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
+            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
+            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
+          </g>
+          <text x="380" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">04</text>
+        </g>
+        <g id="engineFlywheel" transform="translate(469 340) rotate(-37.242)">
+          <circle r="36" fill="#102126" stroke="#90c3ae" stroke-opacity=".8" stroke-width="1.3"/>
+          <circle r="29" stroke="#a5f2d4" stroke-opacity=".3" stroke-dasharray="2 5"/>
+          <path d="M0-24v16m0 16v16M-24 0h16m16 0h16M-17-17l11 11m12 12 11 11m-34 0 11-11M6-6l11-11" stroke="#80b09d" stroke-width="4"/>
+          <circle r="9" fill="#102027" stroke="#b6ebd3"/>
+          <circle r="3" fill="#a5f2d4"/>
+        </g>
+        <path d="M125 193H67l-13-13m293 160v68h67" stroke="#74988b" stroke-opacity=".6" stroke-width=".7"/>
+        <text x="54" y="170" fill="#91baad" font-family="monospace" font-size="7" letter-spacing="1">PISTON</text>
+        <text x="351" y="423" fill="#91baad" font-family="monospace" font-size="7" letter-spacing="1">CRANKSHAFT</text>
+        <path d="M125 452h255m-255-4v8m255-8v8" stroke="#608c7c" stroke-opacity=".5" stroke-width=".7"/>
+        <text x="252" y="473" text-anchor="middle" fill="#91baad" font-family="monospace" font-size="8" letter-spacing="1.5">RECIPROCATING / ROTATING</text>
+      </svg>
+      <div class="engine-controls" role="group" aria-label="Engine animation controls">
+        <button id="engineToggle" class="engine-toggle" type="button" aria-pressed="false">Pause engine</button>
+        <label for="engineSpeed">Speed</label>
+        <input id="engineSpeed" type="range" min="0.3" max="1.5" value="0.8" step="0.1" aria-label="Engine animation speed">
+        <output id="engineSpeedValue" for="engineSpeed">0.8?</output>
+      </div>
+    </div>
+  </div>
+  <div class="wrap hero-bottom">
+    <div class="hero-disciplines"><span>Automation</span><span>Test engineering</span><span>Product design</span></div>
+    <a class="scroll-cue" href="#about">Scroll to explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
+  </div>
+</section>
+
+<section id="about" tabindex="-1" aria-labelledby="about-title">
+  <div class="wrap about-layout">
+    <div class="section-heading"><div><div class="eyebrow" data-index="01">About</div><h2 class="section-title" id="about-title">A bit about me</h2></div></div>
+    <div class="about-copy">
+    <p class="lede">I'm a mechanical engineering student at the University of Iowa focused on robotics and automation, currently interning at Schneider Electric. I like problems I can get my hands on: writing a Python script to pull data out of a stack of PDF test reports, 3D-printing a fixture that finally makes a measurement repeatable, or figuring out why a machine is throwing bad parts.</p>
+    <p class="lede">Outside of coursework, I'm bilingual in Arabic and English, mentor first-generation engineering students through the National Society of Black Engineers, and tutor English in my community.</p>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="skills" tabindex="-1" aria-labelledby="skills-title">
   <div class="wrap">
-    <div class="eyebrow">About</div>
-    <h2 class="section-title">A bit about me</h2>
-    <p class="lede">I'm a mechanical engineering student at the University of Iowa focused on robotics and automation, currently interning at Schneider Electric. I like problems I can get my hands on: writing a Python script to pull data out of a stack of PDF test reports, 3D-printing a fixture that finally makes a measurement repeatable, or figuring out why a machine is throwing bad parts.</p>
-    <p class="lede">Outside of coursework, I'm bilingual in Arabic and English, mentor first-generation engineering students through the National Society of Black Engineers, and tutor English in my community.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="eyebrow">Skills</div>
-    <h2 class="section-title">Technical Toolkit</h2>
+    <div class="section-heading"><div><div class="eyebrow" data-index="02">Skills</div><h2 class="section-title" id="skills-title">Technical Toolkit</h2></div><div class="section-note">TOOLS FOR REAL-WORLD PROBLEMS</div></div>
     <div class="skills-grid">
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[01]</span>
         <h3>Automation & Controls</h3>
         <p>PLC programming (Siemens TIA Portal, S7-1200), MQTT, sensors, actuators, motor-driver/motion control, Raspberry Pi Pico 2W</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[02]</span>
         <h3>AI & Machine Learning</h3>
         <p>LLM API integration (Anthropic Claude), REST APIs, AI visual inspection and model training</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[03]</span>
         <h3>CAD & Design</h3>
         <p>Creo Parametric: parametric modeling, assemblies, GD&T, manufacturable geometry, engineering drawings</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[04]</span>
         <h3>Data & Analysis</h3>
         <p>Python, MATLAB/Simulink, Minitab, Microsoft Office, Git</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[05]</span>
         <h3>Vision & Quality</h3>
         <p>Keyence VR-Series optical profilometry, AI-based visual inspection systems, root-cause & defect analysis</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[06]</span>
         <h3>Methods</h3>
         <p>Lean/5S, Six Sigma fundamentals, structured testing, rapid prototyping & 3D printing</p>
       </div>
       <div class="skill-card">
+        <span class="skill-number" aria-hidden="true">[07]</span>
         <h3>Languages</h3>
         <p>English (native), Arabic (bilingual, used for community translation & tutoring)</p>
       </div>
@@ -301,10 +240,9 @@
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" tabindex="-1" aria-labelledby="experience-title">
   <div class="wrap">
-    <div class="eyebrow">Experience</div>
-    <h2 class="section-title">Where I've Worked</h2>
+    <div class="section-heading"><div><div class="eyebrow" data-index="03">Experience</div><h2 class="section-title" id="experience-title">Where I've Worked</h2></div><div class="section-note">FROM THE SHOP FLOOR TO THE TEST LAB</div></div>
 
     <div class="timeline-item">
       <div class="role-head">
@@ -352,62 +290,78 @@
   </div>
 </section>
 
-<section id="projects">
+<section id="projects" tabindex="-1" aria-labelledby="projects-title">
   <div class="wrap">
-    <div class="eyebrow">Projects</div>
-    <h2 class="section-title">Things I've Built</h2>
+    <div class="section-heading"><div><div class="eyebrow" data-index="04">Projects</div><h2 class="section-title" id="projects-title">Things I've Built</h2></div><div class="section-note">SELECT A PROJECT TO EXPLORE</div></div>
     <div class="project-grid">
       <div class="project-card">
+        <div class="project-art"><span class="project-art-label">01 / AUTOMATION</span><svg viewBox="0 0 220 130" fill="none" aria-hidden="true"><rect x="60" y="12" width="100" height="106" rx="5" stroke="currentColor" stroke-opacity=".5"/><path d="M78 36h38m-38 12h64M78 67h29m-29 12h64m-64 19h49" stroke="currentColor" stroke-opacity=".5"/><path d="M31 49h29m100 32h29M31 49V29h11m147 52v20h-11" stroke="currentColor" stroke-dasharray="3 4"/><circle cx="28" cy="49" r="3" fill="currentColor"/><circle cx="192" cy="81" r="3" fill="currentColor"/><path d="m126 31 5 5 10-11" stroke="currentColor" stroke-width="2"/></svg></div>
+        <div class="project-body">
         <div class="project-icon">AI</div>
         <h3>Job Application Tracker</h3>
         <div class="proj-sub">Personal Project</div>
-        <ul class="bullets">
-          <li>Built a Python tool that scans Gmail, uses the Anthropic Claude API to identify job-application confirmation emails, and logs company, position, location, and date to a Google Sheet</li>
-          <li>Added duplicate detection so repeat runs never double-log a job, and flagged uncertain results for manual review rather than guessing</li>
-        </ul>
         <div class="tag-row">
           <span class="tag">Python</span>
           <span class="tag">Claude API</span>
           <span class="tag">Gmail API</span>
           <span class="tag">Google Sheets</span>
         </div>
+
+        <details class="project-details"><summary>Explore project <span class="detail-toggle" aria-hidden="true">+</span></summary>
+        <ul class="bullets">
+          <li>Built a Python tool that scans Gmail, uses the Anthropic Claude API to identify job-application confirmation emails, and logs company, position, location, and date to a Google Sheet</li>
+          <li>Added duplicate detection so repeat runs never double-log a job, and flagged uncertain results for manual review rather than guessing</li>
+        </ul>
+        </details>
+        </div>
       </div>
       <div class="project-card">
+        <div class="project-art"><span class="project-art-label">02 / CONNECTED SYSTEMS</span><svg viewBox="0 0 220 130" fill="none" aria-hidden="true"><rect x="76" y="30" width="68" height="70" rx="5" stroke="currentColor" stroke-opacity=".7"/><rect x="91" y="45" width="38" height="40" rx="2" stroke="currentColor" stroke-opacity=".4"/><path d="M90 19v11m13-11v11m14-11v11m13-11v11M90 100v11m13-11v11m14-11v11m13-11v11M65 44h11m-11 14h11M65 72h11m-11 14h11m68-42h11m-11 14h11m-11 14h11m-11 14h11" stroke="currentColor"/><path d="M37 45a29 29 0 0 0 0 40m11-30a15 15 0 0 0 0 20m135-30a29 29 0 0 1 0 40m-11-30a15 15 0 0 1 0 20" stroke="currentColor" stroke-opacity=".4"/><circle cx="110" cy="65" r="4" fill="currentColor"/></svg></div>
+        <div class="project-body">
         <div class="project-icon">IoT</div>
         <h3>Industrial IoT Lab Series</h3>
         <div class="proj-sub">University of Iowa</div>
-        <ul class="bullets">
-          <li>Built embedded sensing and actuation systems on a Raspberry Pi Pico 2W, integrating temperature, ultrasonic, and motor-driver modules</li>
-          <li>Used MQTT-based communication to transmit device data; applied automation and process-monitoring principles to connected systems</li>
-        </ul>
         <div class="tag-row">
           <span class="tag">Raspberry Pi Pico 2W</span>
           <span class="tag">MQTT</span>
           <span class="tag">Sensors</span>
         </div>
+
+        <details class="project-details"><summary>Explore project <span class="detail-toggle" aria-hidden="true">+</span></summary>
+        <ul class="bullets">
+          <li>Built embedded sensing and actuation systems on a Raspberry Pi Pico 2W, integrating temperature, ultrasonic, and motor-driver modules</li>
+          <li>Used MQTT-based communication to transmit device data; applied automation and process-monitoring principles to connected systems</li>
+        </ul>
+        </details>
+        </div>
       </div>
       <div class="project-card">
+        <div class="project-art"><span class="project-art-label">03 / MECHANICAL DESIGN</span><svg viewBox="0 0 220 130" fill="none" aria-hidden="true"><path d="m110 16 66 36v40l-66 25-66-25V52Z" stroke="currentColor" stroke-opacity=".4"/><path d="m44 52 66 33 66-33m-66 33v32m0-101v42l66 34m-66-34L44 92" stroke="currentColor" stroke-opacity=".4"/><path d="m72 55 38-21 38 21v21l-38 22-38-22Z" stroke="currentColor"/><path d="m72 55 38 22 38-22m-38 22v21" stroke="currentColor"/><path d="M27 18v94m-5-94h10m-10 94h10m161-69v49m-5-49h10m-10 49h10" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="2 3"/></svg></div>
+        <div class="project-body">
         <div class="project-icon">CAD</div>
         <h3>Truck Steering & Suspension Component Design</h3>
         <div class="proj-sub">University of Iowa, Product Design & Realization</div>
-        <ul class="bullets">
-          <li>Modeled an axle, knuckle, and steer arm in Creo Parametric using swept blends, ribs, drafts, and helical sweeps for manufacturable geometry</li>
-          <li>Created dimensioned engineering drawings and built/evaluated assemblies to verify fit, interfaces, and clearances</li>
-        </ul>
         <div class="tag-row">
           <span class="tag">Creo Parametric</span>
           <span class="tag">GD&T</span>
           <span class="tag">Assemblies</span>
+        </div>
+
+        <details class="project-details"><summary>Explore project <span class="detail-toggle" aria-hidden="true">+</span></summary>
+        <ul class="bullets">
+          <li>Modeled an axle, knuckle, and steer arm in Creo Parametric using swept blends, ribs, drafts, and helical sweeps for manufacturable geometry</li>
+          <li>Created dimensioned engineering drawings and built/evaluated assemblies to verify fit, interfaces, and clearances</li>
+        </ul>
+        </details>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="education">
+<section id="education" tabindex="-1" aria-labelledby="education-title">
   <div class="wrap">
-    <div class="eyebrow">Education</div>
-    <h2 class="section-title">Education & Certifications</h2>
+    <div class="section-heading"><div><div class="eyebrow" data-index="05">Education</div><h2 class="section-title" id="education-title">Education & Certifications</h2></div><div class="section-note">THE FOUNDATION</div></div>
     <div class="edu-card">
       <h3>University of Iowa, Iowa City, IA</h3>
       <div class="sub">B.S.E. Mechanical Engineering, Focus: Robotics and Autonomous Systems &nbsp;|&nbsp; Dec 2026</div>
@@ -437,10 +391,9 @@
   </div>
 </section>
 
-<section id="community">
+<section id="community" tabindex="-1" aria-labelledby="community-title">
   <div class="wrap">
-    <div class="eyebrow">Community</div>
-    <h2 class="section-title">Outside of Engineering</h2>
+    <div class="section-heading"><div><div class="eyebrow" data-index="06">Community</div><h2 class="section-title" id="community-title">Outside of Engineering</h2></div><div class="section-note">BEYOND THE WORKBENCH</div></div>
     <div class="community-grid">
       <div class="community-card">
         <h3>National Society of Black Engineers (NSBE)</h3>
@@ -460,15 +413,26 @@
   </div>
 </section>
 
-<footer id="contact">
+</main>
+
+<footer id="contact" tabindex="-1" aria-labelledby="contact-title">
   <div class="wrap">
-    <div class="eyebrow center">Contact</div>
-    <h2 class="section-title center">Let's Talk</h2>
+    <div class="eyebrow center" data-index="07">Contact</div>
+    <h2 class="section-title center" id="contact-title">Let's Talk<span style="color:var(--accent)">.</span></h2>
     <div class="btn-row">
-      <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Basil.taldoss@gmail.com</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">linkedin.com/in/basil-aldoss</a>
+      <a class="btn btn-primary" href="mailto:Basil.taldoss@gmail.com">Basil.taldoss@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/basil-aldoss/" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
     </div>
     <p>Iowa City, IA. Open to full-time roles in automation, test, and design/product engineering.</p>
+    <div class="footer-bottom">
+      <span class="footer-signoff">Basil Aldoss / Engineering &amp; curiosity</span>
+      <button class="motion-toggle" id="motionToggle" type="button" aria-label="Pause animations" aria-pressed="false">
+        <svg class="pause-icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 2h2v8H2zm6 0h2v8H8z"/></svg>
+        <svg class="play-icon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="m3 1 8 5-8 5z"/></svg>
+        <span>Pause animations</span>
+      </button>
+      <a class="back-top" href="#top">Back to top <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a>
+    </div>
   </div>
 </footer>
 
