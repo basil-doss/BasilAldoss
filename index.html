@@ -14,8 +14,8 @@
 <meta name="twitter:description" content="Mechanical engineering student focused on automation, test engineering, and product design.">
 <meta name="theme-color" content="#080d13">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/styles.css">
-<script src="./assets/site.js" defer></script>
+<link rel="stylesheet" href="./assets/styles.css?v=engine-mobile-1">
+<script src="./assets/site.js?v=engine-mobile-1" defer></script>
 <noscript><style>.engine-controls,.motion-toggle{display:none}.nav{position:static}.nav-inner{flex-wrap:wrap;padding-block:16px}.nav-toggle{display:none}.nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:16px;padding:0;background:none;border:0}</style></noscript>
 </head>
 <body>
@@ -174,11 +174,12 @@
         <text x="252" y="473" text-anchor="middle" fill="#91baad" font-family="monospace" font-size="8" letter-spacing="1.5">RECIPROCATING / ROTATING</text>
       </svg>
       <div class="engine-controls" role="group" aria-label="Engine animation controls">
-        <button id="engineToggle" class="engine-toggle" type="button" aria-pressed="false">Pause engine</button>
+        <button id="engineToggle" class="engine-toggle" type="button" aria-pressed="false" aria-describedby="engineMotionHint">Pause engine</button>
         <label for="engineSpeed">Speed</label>
         <input id="engineSpeed" type="range" min="0.3" max="1.5" value="0.8" step="0.1" aria-label="Engine animation speed">
-        <output id="engineSpeedValue" for="engineSpeed">0.8?</output>
+        <output id="engineSpeedValue" for="engineSpeed">0.8&times;</output>
       </div>
+      <p class="engine-help" id="engineMotionHint" hidden></p>
     </div>
   </div>
   <div class="wrap hero-bottom">

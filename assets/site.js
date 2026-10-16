@@ -105,6 +105,7 @@
   const engineToggle = document.getElementById('engineToggle');
   const engineSpeed = document.getElementById('engineSpeed');
   const engineSpeedValue = document.getElementById('engineSpeedValue');
+  const engineMotionHint = document.getElementById('engineMotionHint');
   const flywheel = document.getElementById('engineFlywheel');
   const cylinders = Array.from(engine.querySelectorAll('[data-cylinder]')).map((element, index) => ({
     center: Number(element.dataset.center),
@@ -115,6 +116,7 @@
     web: element.querySelector('[data-crank-web]')
   }));
   let enginePaused = false;
+  let engineOptIn = false;
   let engineVisible = true;
   let engineAngle = .65;
   let engineLastTime = 0;
@@ -141,17 +143,26 @@
     flywheel.setAttribute('transform', `translate(469 340) rotate(${-engineAngle * 180 / Math.PI})`);
   }
 
+  function engineIsRunning() {
+    return !enginePaused && (!paused || engineOptIn);
+  }
+
   function syncEngineControls() {
-    engineToggle.disabled = paused;
-    engineSpeed.disabled = paused;
-    engineToggle.setAttribute('aria-pressed', String(paused || enginePaused));
-    engineToggle.textContent = paused ? 'Motion paused' : enginePaused ? 'Resume engine' : 'Pause engine';
+    const running = engineIsRunning();
+    engineToggle.setAttribute('aria-pressed', String(!running));
+    engineToggle.textContent = running ? 'Pause engine' : paused ? 'Start engine' : 'Resume engine';
+    engineMotionHint.hidden = !paused;
+    engineMotionHint.textContent = running ? 'Engine playing. Background motion stays paused.' : 'Background motion is paused. You can start just the engine.';
     engineLastTime = 0;
   }
 
   engineToggle.addEventListener('click', () => {
-    enginePaused = !enginePaused;
-    syncEngineControls();
+    const wasRunning = engineIsRunning();
+    enginePaused = wasRunning;
+    // A deliberate tap can play this mechanism without enabling background motion.
+    // This opt-in lasts only for this visit and never changes the system preference.
+    engineOptIn = !wasRunning && paused;
+    syncMotion();
   });
   engineSpeed.addEventListener('input', () => {
     engineSpeedValue.value = `${Number(engineSpeed.value).toFixed(1)}×`;
@@ -160,6 +171,7 @@
     new IntersectionObserver(entries => {
       engineVisible = entries[0].isIntersecting;
       engineLastTime = 0;
+      syncMotion();
     }).observe(engine);
   }
   drawEngine();
@@ -206,14 +218,14 @@
   }
 
   function animate(time) {
-    if (paused || document.hidden) { frame = 0; return; }
-    if (engineVisible && !enginePaused) {
+    if (document.hidden || (paused && (!engineVisible || !engineIsRunning()))) { frame = 0; return; }
+    if (engineVisible && engineIsRunning()) {
       const delta = engineLastTime ? Math.min((time - engineLastTime) / 1000, .05) : 0;
       engineAngle = (engineAngle + delta * Number(engineSpeed.value) * Math.PI * 2) % (Math.PI * 2);
       engineLastTime = time;
       drawEngine();
     }
-    if (time - lastFrame >= 40) { drawSky(time); lastFrame = time; }
+    if (!paused && time - lastFrame >= 40) { drawSky(time); lastFrame = time; }
     frame = requestAnimationFrame(animate);
   }
 
@@ -232,15 +244,21 @@
       pointer.y = 0;
       document.querySelectorAll('.reveal-ready').forEach(element => element.classList.add('is-visible'));
       drawSky(0);
-    } else if (!document.hidden) frame = requestAnimationFrame(animate);
+    }
+    if (!document.hidden && (!paused || (engineVisible && engineIsRunning()))) frame = requestAnimationFrame(animate);
   }
 
   motionButton.addEventListener('click', () => {
     savedPause = !paused;
+    engineOptIn = false;
+    enginePaused = false;
     try { localStorage.setItem('portfolio-motion', savedPause ? 'off' : 'on'); } catch { /* Storage is optional. */ }
     syncMotion();
   });
-  motionPreference.addEventListener('change', syncMotion);
+  motionPreference.addEventListener('change', () => {
+    engineOptIn = false;
+    syncMotion();
+  });
   document.addEventListener('visibilitychange', () => {
     root.classList.toggle('tab-hidden', document.hidden);
     syncMotion();

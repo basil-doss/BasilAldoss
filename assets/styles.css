@@ -80,6 +80,7 @@ section:focus, main:focus, footer:focus { outline: none; }
 .engine-controls input { min-width: 0; width: 86px; height: 24px; accent-color: var(--accent); cursor: pointer; }
 .engine-controls input:disabled { cursor: default; }
 .engine-controls output { min-width: 32px; text-align: right; color: var(--accent); font-variant-numeric: tabular-nums; }
+.engine-help { max-width: 330px; margin: -12px auto 24px; color: var(--muted); font: 10px/1.7 var(--font-mono); }
 .hero-bottom { min-height: 82px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); gap: 24px; }
 .hero-disciplines { display: flex; gap: 28px; font: 10px var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
 .hero-disciplines span::before { content: '+'; color: var(--accent); margin-right: 8px; }
