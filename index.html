@@ -14,9 +14,9 @@
 <meta name="twitter:description" content="Mechanical engineering student focused on automation, test engineering, and product design.">
 <meta name="theme-color" content="#080d13">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/styles.css?v=engine-mobile-1">
-<script src="./assets/site.js?v=engine-mobile-1" defer></script>
-<noscript><style>.engine-controls,.motion-toggle{display:none}.nav{position:static}.nav-inner{flex-wrap:wrap;padding-block:16px}.nav-toggle{display:none}.nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:16px;padding:0;background:none;border:0}</style></noscript>
+<link rel="stylesheet" href="./assets/styles.css?v=rotary-1">
+<script src="./assets/site.js?v=rotary-1" defer></script>
+<noscript><style>.engine-controls,.rotary-inspect,.motion-toggle{display:none}.nav{position:static}.nav-inner{flex-wrap:wrap;padding-block:16px}.nav-toggle{display:none}.nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:16px;padding:0;background:none;border:0}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -57,121 +57,54 @@
       </div>
     </div>
     <div class="hero-visual">
-      <svg class="engine-art" id="engine" viewBox="0 0 520 500" fill="none" aria-hidden="true">
+      <svg class="engine-art" id="engine" viewBox="0 0 520 430" fill="none" aria-hidden="true">
         <defs>
-          <linearGradient id="engineMetal" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1a3837"/><stop offset=".45" stop-color="#47756a"/><stop offset="1" stop-color="#142d31"/></linearGradient>
-          <radialGradient id="engineHalo"><stop stop-color="#79d7bc" stop-opacity=".08"/><stop offset="1" stop-color="#79d7bc" stop-opacity="0"/></radialGradient>
-          <pattern id="engineGrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" stroke="#7cb09d" stroke-opacity=".06" stroke-width=".7"/></pattern>
+          <radialGradient id="engineHalo"><stop stop-color="#79d7bc" stop-opacity=".12"/><stop offset="1" stop-color="#79d7bc" stop-opacity="0"/></radialGradient>
+          <linearGradient id="rotorMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3c6a61"/><stop offset=".5" stop-color="#1c393b"/><stop offset="1" stop-color="#10232b"/></linearGradient>
+          <pattern id="engineGrid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0v24" stroke="#7cb09d" stroke-opacity=".07" stroke-width=".7"/></pattern>
+          <path id="rotaryProfile" d="M168.000 0.000 L167.945 3.769 L167.781 7.534 L167.507 11.291 L167.125 15.035 L166.634 18.762 L166.037 22.469 L165.333 26.150 L164.524 29.803 L163.611 33.422 L162.597 37.005 L161.482 40.548 L160.270 44.046 L158.961 47.497 L157.558 50.896 L156.064 54.241 L154.481 57.527 L152.812 60.753 L151.059 63.915 L149.226 67.010 L147.316 70.036 L145.331 72.989 L143.276 75.868 L141.154 78.671 L138.967 81.395 L136.720 84.039 L134.416 86.601 L132.059 89.079 L129.653 91.472 L127.201 93.780 L124.708 96.000 L122.176 98.133 L119.610 100.177 L117.014 102.133 L114.392 103.999 L111.746 105.777 L109.082 107.466 L106.403 109.067 L103.712 110.580 L101.013 112.006 L98.310 113.346 L95.607 114.601 L92.906 115.771 L90.211 116.859 L87.526 117.866 L84.853 118.794 L82.195 119.644 L79.556 120.419 L76.938 121.120 L74.344 121.750 L71.777 122.310 L69.238 122.805 L66.730 123.235 L64.255 123.604 L61.816 123.915 L59.413 124.170 L57.048 124.371 L54.724 124.523 L52.440 124.628 L50.198 124.688 L48.000 124.708 L45.845 124.689 L43.735 124.636 L41.670 124.551 L39.650 124.436 L37.675 124.297 L35.745 124.134 L33.859 123.952 L32.018 123.753 L30.221 123.540 L28.466 123.316 L26.754 123.083 L25.082 122.845 L23.450 122.604 L21.856 122.363 L20.299 122.123 L18.778 121.887 L17.289 121.658 L15.832 121.437 L14.405 121.226 L13.005 121.028 L11.631 120.843 L10.279 120.674 L8.948 120.521 L7.636 120.386 L6.339 120.270 L5.055 120.174 L3.782 120.098 L2.517 120.044 L1.257 120.011 L0.000 120.000 L-1.257 120.011 L-2.517 120.044 L-3.782 120.098 L-5.055 120.174 L-6.339 120.270 L-7.636 120.386 L-8.948 120.521 L-10.279 120.674 L-11.631 120.843 L-13.005 121.028 L-14.405 121.226 L-15.832 121.437 L-17.289 121.658 L-18.778 121.887 L-20.299 122.123 L-21.856 122.363 L-23.450 122.604 L-25.082 122.845 L-26.754 123.083 L-28.466 123.316 L-30.221 123.540 L-32.018 123.753 L-33.859 123.952 L-35.745 124.134 L-37.675 124.297 L-39.650 124.436 L-41.670 124.551 L-43.735 124.636 L-45.845 124.689 L-48.000 124.708 L-50.198 124.688 L-52.440 124.628 L-54.724 124.523 L-57.048 124.371 L-59.413 124.170 L-61.816 123.915 L-64.255 123.604 L-66.730 123.235 L-69.238 122.805 L-71.777 122.310 L-74.344 121.750 L-76.938 121.120 L-79.556 120.419 L-82.195 119.644 L-84.853 118.794 L-87.526 117.866 L-90.211 116.859 L-92.906 115.771 L-95.607 114.601 L-98.310 113.346 L-101.013 112.006 L-103.712 110.580 L-106.403 109.067 L-109.082 107.466 L-111.746 105.777 L-114.392 103.999 L-117.014 102.133 L-119.610 100.177 L-122.176 98.133 L-124.708 96.000 L-127.201 93.780 L-129.653 91.472 L-132.059 89.079 L-134.416 86.601 L-136.720 84.039 L-138.967 81.395 L-141.154 78.671 L-143.276 75.868 L-145.331 72.989 L-147.316 70.036 L-149.226 67.010 L-151.059 63.915 L-152.812 60.753 L-154.481 57.527 L-156.064 54.241 L-157.558 50.896 L-158.961 47.497 L-160.270 44.046 L-161.482 40.548 L-162.597 37.005 L-163.611 33.422 L-164.524 29.803 L-165.333 26.150 L-166.037 22.469 L-166.634 18.762 L-167.125 15.035 L-167.507 11.291 L-167.781 7.534 L-167.945 3.769 L-168.000 0.000 L-167.945 -3.769 L-167.781 -7.534 L-167.507 -11.291 L-167.125 -15.035 L-166.634 -18.762 L-166.037 -22.469 L-165.333 -26.150 L-164.524 -29.803 L-163.611 -33.422 L-162.597 -37.005 L-161.482 -40.548 L-160.270 -44.046 L-158.961 -47.497 L-157.558 -50.896 L-156.064 -54.241 L-154.481 -57.527 L-152.812 -60.753 L-151.059 -63.915 L-149.226 -67.010 L-147.316 -70.036 L-145.331 -72.989 L-143.276 -75.868 L-141.154 -78.671 L-138.967 -81.395 L-136.720 -84.039 L-134.416 -86.601 L-132.059 -89.079 L-129.653 -91.472 L-127.201 -93.780 L-124.708 -96.000 L-122.176 -98.133 L-119.610 -100.177 L-117.014 -102.133 L-114.392 -103.999 L-111.746 -105.777 L-109.082 -107.466 L-106.403 -109.067 L-103.712 -110.580 L-101.013 -112.006 L-98.310 -113.346 L-95.607 -114.601 L-92.906 -115.771 L-90.211 -116.859 L-87.526 -117.866 L-84.853 -118.794 L-82.195 -119.644 L-79.556 -120.419 L-76.938 -121.120 L-74.344 -121.750 L-71.777 -122.310 L-69.238 -122.805 L-66.730 -123.235 L-64.255 -123.604 L-61.816 -123.915 L-59.413 -124.170 L-57.048 -124.371 L-54.724 -124.523 L-52.440 -124.628 L-50.198 -124.688 L-48.000 -124.708 L-45.845 -124.689 L-43.735 -124.636 L-41.670 -124.551 L-39.650 -124.436 L-37.675 -124.297 L-35.745 -124.134 L-33.859 -123.952 L-32.018 -123.753 L-30.221 -123.540 L-28.466 -123.316 L-26.754 -123.083 L-25.082 -122.845 L-23.450 -122.604 L-21.856 -122.363 L-20.299 -122.123 L-18.778 -121.887 L-17.289 -121.658 L-15.832 -121.437 L-14.405 -121.226 L-13.005 -121.028 L-11.631 -120.843 L-10.279 -120.674 L-8.948 -120.521 L-7.636 -120.386 L-6.339 -120.270 L-5.055 -120.174 L-3.782 -120.098 L-2.517 -120.044 L-1.257 -120.011 L-0.000 -120.000 L1.257 -120.011 L2.517 -120.044 L3.782 -120.098 L5.055 -120.174 L6.339 -120.270 L7.636 -120.386 L8.948 -120.521 L10.279 -120.674 L11.631 -120.843 L13.005 -121.028 L14.405 -121.226 L15.832 -121.437 L17.289 -121.658 L18.778 -121.887 L20.299 -122.123 L21.856 -122.363 L23.450 -122.604 L25.082 -122.845 L26.754 -123.083 L28.466 -123.316 L30.221 -123.540 L32.018 -123.753 L33.859 -123.952 L35.745 -124.134 L37.675 -124.297 L39.650 -124.436 L41.670 -124.551 L43.735 -124.636 L45.845 -124.689 L48.000 -124.708 L50.198 -124.688 L52.440 -124.628 L54.724 -124.523 L57.048 -124.371 L59.413 -124.170 L61.816 -123.915 L64.255 -123.604 L66.730 -123.235 L69.238 -122.805 L71.777 -122.310 L74.344 -121.750 L76.938 -121.120 L79.556 -120.419 L82.195 -119.644 L84.853 -118.794 L87.526 -117.866 L90.211 -116.859 L92.906 -115.771 L95.607 -114.601 L98.310 -113.346 L101.013 -112.006 L103.712 -110.580 L106.403 -109.067 L109.082 -107.466 L111.746 -105.777 L114.392 -103.999 L117.014 -102.133 L119.610 -100.177 L122.176 -98.133 L124.708 -96.000 L127.201 -93.780 L129.653 -91.472 L132.059 -89.079 L134.416 -86.601 L136.720 -84.039 L138.967 -81.395 L141.154 -78.671 L143.276 -75.868 L145.331 -72.989 L147.316 -70.036 L149.226 -67.010 L151.059 -63.915 L152.812 -60.753 L154.481 -57.527 L156.064 -54.241 L157.558 -50.896 L158.961 -47.497 L160.270 -44.046 L161.482 -40.548 L162.597 -37.005 L163.611 -33.422 L164.524 -29.803 L165.333 -26.150 L166.037 -22.469 L166.634 -18.762 L167.125 -15.035 L167.507 -11.291 L167.781 -7.534 L167.945 -3.769 L168.000 -0.000Z"/>
         </defs>
-        <circle cx="260" cy="260" r="237" fill="url(#engineHalo)"/>
-        <rect x="48" y="66" width="424" height="374" fill="url(#engineGrid)"/>
-        <path d="M54 93V73h20m372 0h20v20M54 410v20h20m372 0h20v-20" stroke="#6a9a8b" stroke-opacity=".5" stroke-width=".8"/>
-        <text x="78" y="82" fill="#91baad" font-family="monospace" font-size="8" letter-spacing="1.5">INLINE-4 / KINEMATIC STUDY</text>
-        <path d="M88 150v136l-20 22v59l24 25h330l22-25v-59l-20-22V150" fill="#0b1920" fill-opacity=".7" stroke="#41635d" stroke-width="1"/>
-        <path d="M103 294h307m-307 89h307" stroke="#638c7f" stroke-opacity=".35"/>
-        <rect x="82" y="105" width="348" height="45" rx="5" fill="#102027" stroke="#6d9788" stroke-width="1"/>
-        <path d="M82 114h348m-348 28h348" stroke="#80b69d" stroke-opacity=".3"/>
-        <g fill="#0a1219" stroke="#7eaa97" stroke-width=".7">
-          <circle cx="94" cy="126" r="3"/><circle cx="167" cy="126" r="3"/><circle cx="252" cy="126" r="3"/><circle cx="337" cy="126" r="3"/><circle cx="418" cy="126" r="3"/>
+        <circle cx="260" cy="230" r="210" fill="url(#engineHalo)"/>
+        <rect x="48" y="48" width="424" height="344" fill="url(#engineGrid)"/>
+        <path d="M54 76V56h20m372 0h20v20M54 372v20h20m372 0h20v-20" stroke="#6a9a8b" stroke-opacity=".5" stroke-width=".8"/>
+        <text x="78" y="65" fill="#a0c6b9" font-family="monospace" font-size="8" letter-spacing="1.5">WANKEL / ROTARY ENGINE</text>
+        <g transform="translate(260 235)">
+          <use href="#rotaryProfile" stroke="#406158" stroke-width="24" stroke-linejoin="round"/>
+          <use href="#rotaryProfile" fill="#0c1a21" stroke="#a5f2d4" stroke-opacity=".7" stroke-width="1.2"/>
+          <use href="#rotaryProfile" stroke="#a5f2d4" stroke-opacity=".1" stroke-width="1" transform="scale(1.055)"/>
+          <path d="M-190 0h380M0-150v300" stroke="#9bd5c1" stroke-opacity=".12" stroke-width=".7" stroke-dasharray="3 6"/>
+          <circle r="24" stroke="#8fbcae" stroke-opacity=".3" stroke-dasharray="2 4"/>
         </g>
-        <path d="M62 340h414" stroke="#547d70" stroke-width="8"/>
-        <path d="M62 338h414" stroke="#a5f2d4" stroke-opacity=".35" stroke-width="1"/>
-        <g class="engine-cylinder" data-cylinder="0" data-center="125">
-          <path d="M96 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
-          <path d="M100 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
-          <path d="M125 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
-          <g data-crank-web transform="translate(125 340) rotate(-37.242)">
-            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
-            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
-            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
-          </g>
-          <line data-rod-outline x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
-          <line data-rod x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
-          <line data-rod-highlight x1="125" y1="249.060" x2="139.524" y2="359.106" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
-          <g data-big-end transform="translate(139.524 359.106)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
-          <g data-piston transform="translate(125 249.060)">
-            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
-            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
-            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
-            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
-          </g>
-          <text x="125" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">01</text>
+        <g stroke="#80b4a0" stroke-opacity=".6" fill="#11242a">
+          <circle cx="101" cy="161" r="4"/><circle cx="162" cy="96" r="4"/><circle cx="260" cy="102" r="4"/><circle cx="358" cy="96" r="4"/><circle cx="419" cy="161" r="4"/>
+          <circle cx="101" cy="309" r="4"/><circle cx="162" cy="374" r="4"/><circle cx="260" cy="368" r="4"/><circle cx="358" cy="374" r="4"/><circle cx="419" cy="309" r="4"/>
         </g>
-        <g class="engine-cylinder" data-cylinder="1" data-center="210">
-          <path d="M181 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
-          <path d="M185 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
-          <path d="M210 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
-          <g data-crank-web transform="translate(210 340) rotate(-217.242)">
-            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
-            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
-            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
-          </g>
-          <line data-rod-outline x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
-          <line data-rod x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
-          <line data-rod-highlight x1="210" y1="210.848" x2="195.476" y2="320.894" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
-          <g data-big-end transform="translate(195.476 320.894)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
-          <g data-piston transform="translate(210 210.848)">
-            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
-            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
-            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
-            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
-          </g>
-          <text x="210" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">02</text>
+        <g id="rotaryRotor" transform="translate(279.106 249.524) rotate(12.414)">
+          <path id="rotorFace" d="M144.000 0.000 Q57.600 99.766 -72.000 124.708 Q-115.200 -0.000 -72.000 -124.708 Q57.600 -99.766 144.000 0.000Z" fill="url(#rotorMetal)" stroke="#b2e9d1" stroke-width="1.5"/>
+          <path d="M144.000 0.000 Q57.600 99.766 -72.000 124.708 Q-115.200 -0.000 -72.000 -124.708 Q57.600 -99.766 144.000 0.000Z" stroke="#a5f2d4" stroke-opacity=".15" transform="scale(.9)"/>
+          <circle r="45" fill="#0a161e" stroke="#91c7b0" stroke-width="1"/>
+          <circle r="38" stroke="#91c7b0" stroke-width="4" stroke-dasharray="1.5 7"/>
+          <path d="M55 0h48M-28 48l-24 42m24-138-24-42" stroke="#a5f2d4" stroke-opacity=".22"/>
+          <circle cx="144" cy="0" r="3" fill="#c9fbe2"/>
+          <circle cx="-72" cy="124.708" r="3" fill="#9ebcff"/>
+          <circle cx="-72" cy="-124.708" r="3" fill="#dfb68e"/>
         </g>
-        <g class="engine-cylinder" data-cylinder="2" data-center="295">
-          <path d="M266 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
-          <path d="M270 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
-          <path d="M295 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
-          <g data-crank-web transform="translate(295 340) rotate(-217.242)">
-            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
-            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
-            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
-          </g>
-          <line data-rod-outline x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
-          <line data-rod x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
-          <line data-rod-highlight x1="295" y1="210.848" x2="280.476" y2="320.894" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
-          <g data-big-end transform="translate(280.476 320.894)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
-          <g data-piston transform="translate(295 210.848)">
-            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
-            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
-            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
-            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
-          </g>
-          <text x="295" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">03</text>
+        <g id="rotaryShaft" transform="translate(260 235) rotate(37.242)">
+          <path d="M0-12h24a12 12 0 0 1 0 24H0Z" fill="#739b89" fill-opacity=".7" stroke="#b6e8d0"/>
+          <circle cx="24" r="8" fill="#182e31" stroke="#d3f6e5"/>
+          <path d="M24-4v8m-4-4h8" stroke="#a5f2d4" stroke-opacity=".6"/>
         </g>
-        <g class="engine-cylinder" data-cylinder="3" data-center="380">
-          <path d="M351 150v124m58-124v124" stroke="#496a66" stroke-width="2"/>
-          <path d="M355 150v121m50-121v121" stroke="#a5f2d4" stroke-opacity=".12"/>
-          <path d="M380 153v225" stroke="#a5f2d4" stroke-opacity=".12" stroke-dasharray="3 7"/>
-          <g data-crank-web transform="translate(380 340) rotate(-37.242)">
-            <circle r="28" stroke="#78b09e" stroke-opacity=".25"/>
-            <path d="M-11-9a11 11 0 0 1 22 0v33a11 11 0 0 1-22 0Z" fill="url(#engineMetal)" stroke="#77a99b" stroke-width="1"/>
-            <circle r="6" fill="#0b171d" stroke="#a5f2d4" stroke-opacity=".7"/>
-          </g>
-          <line data-rod-outline x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#071015" stroke-width="13" stroke-linecap="round"/>
-          <line data-rod x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#83b8a9" stroke-width="7" stroke-linecap="round"/>
-          <line data-rod-highlight x1="380" y1="249.060" x2="394.524" y2="359.106" stroke="#c4f3df" stroke-opacity=".5" stroke-width="1"/>
-          <g data-big-end transform="translate(394.524 359.106)"><circle r="9" fill="#19312f" stroke="#9dd8c2" stroke-width="1.3"/><circle r="4" fill="#080d13" stroke="#7da99c"/></g>
-          <g data-piston transform="translate(380 249.060)">
-            <path d="M-23-35h46v44h-10V1h-26v8h-10Z" fill="url(#engineMetal)" stroke="#a5f2d4" stroke-opacity=".8"/>
-            <path d="M-22-28h44m-44 6h44m-44 6h44" stroke="#080d13" stroke-width="2"/>
-            <path d="M-20-34h40" stroke="#d0ffe9" stroke-width="1.5"/>
-            <circle r="5" fill="#10242b" stroke="#b1e7d0" stroke-width="1.2"/>
-          </g>
-          <text x="380" y="132" text-anchor="middle" fill="#9cbaae" font-family="monospace" font-size="8">04</text>
-        </g>
-        <g id="engineFlywheel" transform="translate(469 340) rotate(-37.242)">
-          <circle r="36" fill="#102126" stroke="#90c3ae" stroke-opacity=".8" stroke-width="1.3"/>
-          <circle r="29" stroke="#a5f2d4" stroke-opacity=".3" stroke-dasharray="2 5"/>
-          <path d="M0-24v16m0 16v16M-24 0h16m16 0h16M-17-17l11 11m12 12 11 11m-34 0 11-11M6-6l11-11" stroke="#80b09d" stroke-width="4"/>
-          <circle r="9" fill="#102027" stroke="#b6ebd3"/>
-          <circle r="3" fill="#a5f2d4"/>
-        </g>
-        <path d="M125 193H67l-13-13m293 160v68h67" stroke="#74988b" stroke-opacity=".6" stroke-width=".7"/>
-        <text x="54" y="170" fill="#91baad" font-family="monospace" font-size="7" letter-spacing="1">PISTON</text>
-        <text x="351" y="423" fill="#91baad" font-family="monospace" font-size="7" letter-spacing="1">CRANKSHAFT</text>
-        <path d="M125 452h255m-255-4v8m255-8v8" stroke="#608c7c" stroke-opacity=".5" stroke-width=".7"/>
-        <text x="252" y="473" text-anchor="middle" fill="#91baad" font-family="monospace" font-size="8" letter-spacing="1.5">RECIPROCATING / ROTATING</text>
+        <circle cx="260" cy="235" r="9" fill="#0b1820" stroke="#b6e8d0" stroke-width="1.3"/>
+        <circle cx="260" cy="235" r="3" fill="#a5f2d4"/>
+        <path d="M247 110V94m13 16V94" stroke="#b9ddd0" stroke-width="3"/>
+        <path d="m243 112 4 6 4-6m5 0 4 6 4-6" stroke="#dfb68e" stroke-width="1.2"/>
+        <path d="M106 205H75v-12m31 72H75v12" stroke="#a5f2d4" stroke-width="3"/>
+        <path d="M125 206H70m55 59H70" stroke="#0c1a21" stroke-width="2"/>
+        <text x="48" y="185" fill="#a5cfbd" font-family="monospace" font-size="7" letter-spacing="1">INTAKE</text>
+        <text x="48" y="294" fill="#a5cfbd" font-family="monospace" font-size="7" letter-spacing="1">EXHAUST</text>
+        <path d="M372 176h52l18-18" stroke="#7ca492" stroke-opacity=".7" stroke-width=".7"/>
+        <text x="391" y="147" fill="#a5cfbd" font-family="monospace" font-size="7" letter-spacing="1">ROTOR</text>
+        <text x="260" y="415" text-anchor="middle" fill="#a0c6b9" font-family="monospace" font-size="8" letter-spacing="1.5">THREE FACES. ONE CONTINUOUS MOTION.</text>
       </svg>
       <div class="engine-controls" role="group" aria-label="Engine animation controls">
         <button id="engineToggle" class="engine-toggle" type="button" aria-pressed="false" aria-describedby="engineMotionHint">Pause engine</button>
@@ -180,6 +113,16 @@
         <output id="engineSpeedValue" for="engineSpeed">0.8&times;</output>
       </div>
       <p class="engine-help" id="engineMotionHint" hidden></p>
+      <div class="rotary-inspect">
+        <button class="engine-toggle" id="engineStep" type="button" aria-label="Step rotation by 15 degrees">Step rotation <span aria-hidden="true">&#8627;</span></button>
+        <span>3 shaft turns / 1 rotor turn</span>
+      </div>
+      <aside class="engine-fact" aria-labelledby="engine-fact-title">
+        <span class="engine-fact-label">A little engineering history</span>
+        <h2 id="engine-fact-title">A different way to win.</h2>
+        <p>In 1991, Mazda's four-rotor 787B won the 24 Hours of Le Mans, becoming the first rotary-powered car to take the overall victory.</p>
+        <a href="https://www.mazda.com/en/experience/mspr/motorsports/lemans/" target="_blank" rel="noopener">The story behind the engine <span aria-hidden="true">&#8599;</span></a>
+      </aside>
     </div>
   </div>
   <div class="wrap hero-bottom">

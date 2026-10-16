@@ -99,22 +99,16 @@
     detail.addEventListener('toggle', queueScroll);
   });
 
-  // Slider-crank kinematics: each rod has a constant length, and each piston
-  // moves only on its cylinder axis. Cylinders 1/4 and 2/3 move in pairs.
+  // Wankel kinematics: the rotor center orbits with the eccentric shaft,
+  // while the rotor itself turns at one-third of the shaft's angular speed.
   const engine = document.getElementById('engine');
   const engineToggle = document.getElementById('engineToggle');
   const engineSpeed = document.getElementById('engineSpeed');
   const engineSpeedValue = document.getElementById('engineSpeedValue');
   const engineMotionHint = document.getElementById('engineMotionHint');
-  const flywheel = document.getElementById('engineFlywheel');
-  const cylinders = Array.from(engine.querySelectorAll('[data-cylinder]')).map((element, index) => ({
-    center: Number(element.dataset.center),
-    phase: index === 1 || index === 2 ? Math.PI : 0,
-    piston: element.querySelector('[data-piston]'),
-    rods: Array.from(element.querySelectorAll('[data-rod], [data-rod-outline], [data-rod-highlight]')),
-    bigEnd: element.querySelector('[data-big-end]'),
-    web: element.querySelector('[data-crank-web]')
-  }));
+  const rotor = document.getElementById('rotaryRotor');
+  const shaft = document.getElementById('rotaryShaft');
+  const engineStep = document.getElementById('engineStep');
   let enginePaused = false;
   let engineOptIn = false;
   let engineVisible = true;
@@ -122,25 +116,11 @@
   let engineLastTime = 0;
 
   function drawEngine() {
-    const radius = 24;
-    const rodLength = 111;
-    for (const cylinder of cylinders) {
-      const angle = engineAngle + cylinder.phase;
-      const offset = radius * Math.sin(angle);
-      const crankX = cylinder.center + offset;
-      const crankY = 340 + radius * Math.cos(angle);
-      const pinY = crankY - Math.sqrt(rodLength ** 2 - offset ** 2);
-      cylinder.piston.setAttribute('transform', `translate(${cylinder.center} ${pinY})`);
-      cylinder.bigEnd.setAttribute('transform', `translate(${crankX} ${crankY})`);
-      cylinder.web.setAttribute('transform', `translate(${cylinder.center} 340) rotate(${-angle * 180 / Math.PI})`);
-      for (const rod of cylinder.rods) {
-        rod.setAttribute('x1', cylinder.center);
-        rod.setAttribute('y1', pinY);
-        rod.setAttribute('x2', crankX);
-        rod.setAttribute('y2', crankY);
-      }
-    }
-    flywheel.setAttribute('transform', `translate(469 340) rotate(${-engineAngle * 180 / Math.PI})`);
+    const centerX = 260 + 24 * Math.cos(engineAngle);
+    const centerY = 235 + 24 * Math.sin(engineAngle);
+    const degrees = engineAngle * 180 / Math.PI;
+    rotor.setAttribute('transform', `translate(${centerX} ${centerY}) rotate(${degrees / 3})`);
+    shaft.setAttribute('transform', `translate(260 235) rotate(${degrees})`);
   }
 
   function engineIsRunning() {
@@ -166,6 +146,13 @@
   });
   engineSpeed.addEventListener('input', () => {
     engineSpeedValue.value = `${Number(engineSpeed.value).toFixed(1)}×`;
+  });
+  engineStep.addEventListener('click', () => {
+    enginePaused = true;
+    engineOptIn = false;
+    engineAngle = (engineAngle + Math.PI / 12) % (Math.PI * 6);
+    drawEngine();
+    syncMotion();
   });
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries => {
@@ -221,7 +208,7 @@
     if (document.hidden || (paused && (!engineVisible || !engineIsRunning()))) { frame = 0; return; }
     if (engineVisible && engineIsRunning()) {
       const delta = engineLastTime ? Math.min((time - engineLastTime) / 1000, .05) : 0;
-      engineAngle = (engineAngle + delta * Number(engineSpeed.value) * Math.PI * 2) % (Math.PI * 2);
+      engineAngle = (engineAngle + delta * Number(engineSpeed.value) * Math.PI * 2) % (Math.PI * 6);
       engineLastTime = time;
       drawEngine();
     }

@@ -53,7 +53,7 @@ section:focus, main:focus, footer:focus { outline: none; }
 .nav-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded='true'] span:last-child { transform: translateY(-6px) rotate(-45deg); }
 
-/* An inline-four engine cutaway, drawn and animated as real linked geometry. */
+/* A rotary engine cutaway with an eccentric orbit and a 3:1 shaft/rotor ratio. */
 .hero { position: relative; padding: 82px 0 0; overflow: hidden; }
 .hero-inner { min-height: 620px; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; position: relative; }
 .hero-copy { position: relative; z-index: 2; padding-bottom: 72px; }
@@ -81,6 +81,14 @@ section:focus, main:focus, footer:focus { outline: none; }
 .engine-controls input:disabled { cursor: default; }
 .engine-controls output { min-width: 32px; text-align: right; color: var(--accent); font-variant-numeric: tabular-nums; }
 .engine-help { max-width: 330px; margin: -12px auto 24px; color: var(--muted); font: 10px/1.7 var(--font-mono); }
+.rotary-inspect { display: flex; align-items: center; gap: 16px; max-width: 330px; margin: -10px auto 22px; color: var(--muted); font: 9px/1.6 var(--font-mono); }
+.rotary-inspect .engine-toggle { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.engine-fact { max-width: 360px; margin: 0 auto 32px; padding: 20px 23px; border-left: 1px solid #6f9e8c; background: linear-gradient(110deg, #16352d55, #0d171d44); }
+.engine-fact-label { color: var(--accent); font: 8px/1.7 var(--font-mono); letter-spacing: .11em; text-transform: uppercase; }
+.engine-fact h2 { font: 500 19px/1.5 var(--font-heading); letter-spacing: -.025em; margin: 8px 0; }
+.engine-fact p { color: var(--muted); font-size: 11px; line-height: 1.9; }
+.engine-fact a { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font: 9px/1.7 var(--font-mono); margin-top: 12px; }
+.engine-fact a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .hero-bottom { min-height: 82px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); gap: 24px; }
 .hero-disciplines { display: flex; gap: 28px; font: 10px var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
 .hero-disciplines span::before { content: '+'; color: var(--accent); margin-right: 8px; }
