@@ -388,7 +388,7 @@
       <figure class="workshop-scene" data-workshop-scene="lift">
 <div class="scene-head"><span>FIG. 002 / THE SERVICE BAY</span><span aria-hidden="true">↑↓</span></div>
 <svg viewBox="0 0 520 340" role="img" aria-labelledby="lift-title lift-description">
-<title id="lift-title">A car supported by a workshop lift</title><desc id="lift-description">An illustrative automotive service scene. The car and lift platform rise together, pause at service height, and lower together.</desc>
+<title id="lift-title">A sports coupe supported by a workshop lift</title><desc id="lift-description">An illustrative automotive service scene with a low sports coupe, sculpted bodywork, and alloy wheels. The car and lift platform rise together, pause at service height, and lower together.</desc>
 <ellipse data-lift-shadow cx="263" cy="314" rx="202" ry="13" fill="#53604b" opacity=".16"/>
 <g class="scene-metals">
 <path d="m63 308 40-6 19 11-43 8Zm370-1 41-6 22 11-45 9Z" fill="#3b5140" stroke="#50664c"/>
@@ -403,30 +403,51 @@
 <path d="m137 287 294-7v10l-294 8Z" fill="#3e5940" stroke="#52694c"/><path d="m99 264 38 23v11l-38-22Z" fill="#647a58" stroke="#52694c"/>
 <path d="m141 288 12-1m10 1 12-1m12 1 12-1m12 1 12-1m12 1 12-1m12 1 12-1m12 0 12-1m12 0 12-1m12 0 12-1m12 0 12-1m12 0 12-1" stroke="#d49b61" stroke-width="4"/>
 <defs>
-<linearGradient id="servicePaint" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#aeb8a1"/><stop offset=".36" stop-color="#7c9074"/><stop offset="1" stop-color="#48624c"/></linearGradient>
-<linearGradient id="serviceGlass" x1="0" x2="1" y2="1"><stop stop-color="#9aada1"/><stop offset=".45" stop-color="#50685a"/><stop offset="1" stop-color="#314b3d"/></linearGradient>
-<linearGradient id="serviceTrim" x1="0" x2="1"><stop stop-color="#687860"/><stop offset=".5" stop-color="#d3d9c9"/><stop offset="1" stop-color="#77876c"/></linearGradient>
+<linearGradient id="servicePaint" x1="0" y1="0" x2=".15" y2="1"><stop stop-color="#efbd8b"/><stop offset=".35" stop-color="#d98751"/><stop offset=".7" stop-color="#c36538"/><stop offset="1" stop-color="#8c4029"/></linearGradient>
+<linearGradient id="serviceHood" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#edb283"/><stop offset=".6" stop-color="#d5834e"/><stop offset="1" stop-color="#ba5933"/></linearGradient>
+<linearGradient id="serviceGlass" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#9aa99b"/><stop offset=".4" stop-color="#4a6355"/><stop offset="1" stop-color="#243d30"/></linearGradient>
+<linearGradient id="serviceTrim" x1="0" x2="1"><stop stop-color="#64715f"/><stop offset=".38" stop-color="#d9ddca"/><stop offset=".65" stop-color="#a8b69c"/><stop offset="1" stop-color="#65795d"/></linearGradient>
 </defs>
-<g stroke-linejoin="round">
-<path d="m108 204 41-36 42-33 102-6 52 39 59 34 5 36-24 12-274-7-12-19Z" fill="url(#servicePaint)" stroke="#435a43" stroke-width="2"/>
-<path d="m150 169 44-34 96-5 51 39-102 9Z" fill="#b4bea8" stroke="#65785b"/>
-<path d="m163 169 35-27 33-2 1 34Z" fill="url(#serviceGlass)" stroke="#d3d9c8" stroke-width="2"/>
-<path d="m241 139 45-2 39 30-83 6Z" fill="url(#serviceGlass)" stroke="#d3d9c8" stroke-width="2"/>
-<path d="m340 175 51 27-93 9-59-30Z" fill="#a5b398" stroke="#7e936e"/>
-<path d="m108 204 131-23 59 30 1 34-188-2-12-19Z" fill="url(#servicePaint)" stroke="#435a43" stroke-width="1.5"/>
-<path d="m298 211 106-9 5 36-24 12-86-5Z" fill="#5b7356" stroke="#435a43" stroke-width="1.5"/>
-<path d="m120 208 162 11m-51-38 5 58m-48-51 3 49" fill="none" stroke="#4e674b"/>
-<path d="m166 198 15-2m70 7 15-1" stroke="#c2cbb5" stroke-width="3"/>
-<path d="m304 216 35-3-2 9-31 4m70-16 20-2 1 10-22 3" fill="#e5dfbb" stroke="#9f9e7e"/>
-<path d="m342 217 28-2m-28 5 28-2m-29 5 29-2" stroke="#293f30" stroke-width="2"/>
-<path d="m312 237 77-6" stroke="url(#serviceTrim)" stroke-width="6"/>
-<path d="m110 209 7-2v11h-7" fill="#c87950"/>
-<g fill="#2c3d30" stroke="#53664d" stroke-width="2"><ellipse cx="151" cy="239" rx="23" ry="26"/><ellipse cx="351" cy="241" rx="23" ry="26"/></g>
-<g fill="url(#serviceTrim)" stroke="#829277"><ellipse cx="154" cy="239" rx="13" ry="17"/><ellipse cx="354" cy="241" rx="13" ry="17"/></g>
-<g fill="#4a6147"><ellipse cx="154" cy="239" rx="5" ry="7"/><ellipse cx="354" cy="241" rx="5" ry="7"/></g>
-<path d="m151 227 6 24m-11-12 15-2m190-7 6 24m-11-12 15-2" stroke="#7c8d6f" stroke-width="2"/>
-<path d="m241 181-4-6 13-3 8 6-9 5Z" fill="#728868" stroke="#435a43"/>
-<path d="m203 144 15-1m40 0 17-1" stroke="#c2ccba" stroke-width="1" opacity=".7"/>
+<g data-service-car stroke-linejoin="round" stroke-linecap="round">
+<!-- Long hood, low roof, and a curved fastback silhouette. -->
+<path d="M103 217q3-14 25-19l24-6q30-42 61-47 25-5 49 2 23 8 49 35l45 6q43 7 58 21 7 8 5 25l-10 11-31 5-253-3q-18-4-22-16Z" fill="url(#servicePaint)" stroke="#805039" stroke-width="1.8"/>
+<path d="M152 192q33-43 62-47 25-5 48 2l-24 5q-35-4-65 35Z" fill="#edba89" stroke="#bd7d52"/>
+<!-- Side glass and a raked windshield share the roof's perspective. -->
+<path d="M172 185q21-28 43-31l22-1 14 28-53 6Z" fill="url(#serviceGlass)" stroke="#e3ba8f" stroke-width="1.8"/>
+<path d="m243 153 17-1q23 9 45 32l-44 5Z" fill="url(#serviceGlass)" stroke="#e3ba8f" stroke-width="1.8"/>
+<path d="m208 157 7 27" stroke="#896c50" stroke-width="3"/>
+<path d="m250 157 10 25m-76-5 14-13" stroke="#c2cbb8" stroke-width="1.2" opacity=".6"/>
+<path d="m269 191 41-9 46 6q38 6 53 20l-39 10-75-9Z" fill="url(#serviceHood)" stroke="#c17a4a" stroke-width="1.2"/>
+<path d="M287 194q49-3 85 10m-72-16q39 0 70 12" fill="none" stroke="#f1c297" stroke-width="1.3" opacity=".65"/>
+<!-- Sculpted fenders and a recessed door emphasize the coupe proportions. -->
+<path d="M104 216q25-17 55-18l39-11q40-6 72 4l27 18 78 6 5 29-254-1q-17-4-22-13Z" fill="url(#servicePaint)" stroke="#a35a37" stroke-width="1.2"/>
+<path d="M108 216q24-13 48-13l41-11q38-6 69 4l28 18 75 5" fill="none" stroke="#f1bb89" stroke-width="1.6"/>
+<path d="m192 194-8 31q-1 8 9 9l71 3q9 0 11-7l6-18-18-16" fill="none" stroke="#965236" stroke-width="1"/>
+<path d="m253 204 15 1" stroke="#efc69b" stroke-width="2.5"/>
+<path d="m277 219 17 2-11 10-11-1Z" fill="#4a4938" stroke="#8c4c33"/>
+<path d="m190 240 104 2 7 5-114-2Z" fill="#594c38"/>
+<path d="M126 243q-3-32 26-34 29-1 33 35m137 1q-3-35 29-36 31 1 32 36" fill="#293d2e" stroke="#e3a374" stroke-width="2"/>
+<!-- Slim lamps, dark air intakes, and a low front splitter. -->
+<path d="m375 215 37-8q10 9 7 27l-10 11-30 4Z" fill="#ad5533" stroke="#8c4b31" stroke-width="1.4"/>
+<path d="m370 215 32-5-6 7-23 4Z" fill="#ece8c5" stroke="#b8986f"/>
+<path d="m375 217 20-4" stroke="#fff7d8" stroke-width="1.6"/>
+<path d="m404 212 9-2 2 5-11 3Z" fill="#dedcba"/>
+<path d="m387 229 27-7-3 13-26 7Z" fill="#2e3e30" stroke="#86472e"/>
+<path d="m390 232 20-6m-21 9 19-6" stroke="#66735a" stroke-width="1"/>
+<path d="m381 245 29-6 4 5-35 8-9-3Z" fill="#354333" stroke="#46523d"/>
+<path d="m106 214 11-3 1 7-12 3Z" fill="#a3402a"/>
+<path d="m107 214 9-2" stroke="#f1b17d" stroke-width="1.2"/>
+<path d="m254 187-1-7 13-2 9 6-9 5Z" fill="#c77d4b" stroke="#8b5334"/>
+<!-- Low-profile tires and five-spoke alloy wheels; both contact the lift deck. -->
+<g fill="#27392c" stroke="#46513b" stroke-width="1.6"><ellipse cx="151" cy="240" rx="23" ry="26"/><ellipse cx="351" cy="241" rx="24" ry="26"/></g>
+<g fill="url(#serviceTrim)" stroke="#abb69d" stroke-width="1"><ellipse cx="154" cy="240" rx="17" ry="20"/><ellipse cx="354" cy="241" rx="18" ry="20"/></g>
+<g fill="#3e5140" stroke="#75856d" stroke-width=".8"><ellipse cx="154" cy="240" rx="13" ry="16"/><ellipse cx="354" cy="241" rx="14" ry="16"/></g>
+<path d="m164 233 3 1-2 11-4-1m204-10 3 1-2 11-4-1" fill="#bc653e"/>
+<g fill="url(#serviceTrim)" stroke="#cbd1bb" stroke-width=".6">
+<path d="m151 239 1-17 4-1 1 18 12-7 2 4-14 7 7 13-4 2-7-14-11 10-3-3 12-11-12-6 2-4Z"/>
+<path d="m351 240 1-17 4-1 1 18 13-7 2 4-15 7 7 13-4 2-7-14-12 10-3-3 13-11-13-6 2-4Z"/>
+</g>
+<g fill="#718267" stroke="#d0d6bf" stroke-width="1"><ellipse cx="154" cy="240" rx="4" ry="4.5"/><ellipse cx="354" cy="241" rx="4" ry="4.5"/></g>
 </g>
 </g>
 </g>
