@@ -10,7 +10,7 @@ The workshop design is adapted from the supplied `Basil_Portfolio` reference. Th
 - Switch between the workshop and blueprint palettes. Your selection is remembered locally when browser storage is available.
 - Select a workbench object or its label to open the corresponding real project. The project notes below also work without JavaScript. On narrow screens, scroll the workbench sideways to see all four objects.
 - Explore Humanoid Robotic Inspection & Sorting first, followed by Product Design & Realization, Industrial IoT Lab Series, and Job Application Tracker. The humanoid case study describes the team's intended workflow and ongoing work.
-- Find the automotive roles under Part-Time Experience and Auto Revivals under Entrepreneurship, accompanied by car-lift and mobile detailing studies.
+- Find the automotive roles under Part-Time Experience and Auto Revivals under Entrepreneurship, accompanied by oil-service and mobile detailing studies. The sports coupe stays raised on four lift arms while oil drains into a wheeled catcher.
 - Use the sketchbook tabs to explore linkage, gear, and spring motion studies. Arrow keys, Home, and End navigate the tabs.
 - Use the footer to pause animations. System reduced-motion preferences are respected; the engine can be started independently.
 

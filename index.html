@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#eeede7">
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./assets/styles.css?v=workshop-2">
-<script src="./assets/site.js?v=workshop-2" defer=""></script>
+<script src="./assets/site.js?v=workshop-3" defer=""></script>
 <noscript><style>.engine-controls,.machine-hint,.view-switch,.motion-toggle,.sketch-tabs{display:none}.site-header{position:static}.nav-toggle{display:none}.header-inner{flex-wrap:wrap;padding-block:18px}.nav-links{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:16px;padding:0;border:0;background:none}</style></noscript>
 </head>
 <body>
@@ -386,10 +386,10 @@
     <div class="section-heading"><div><div class="eyebrow" data-index="06">Hands-On Roots</div><h2 class="section-title" id="part-time-title">Part-Time Experience</h2></div><p class="section-intro">Hands-on automotive service experience built around preventive maintenance, inspection, and efficient service workflows.</p></div>
     <div class="experience-scene-layout">
       <figure class="workshop-scene" data-workshop-scene="lift">
-<div class="scene-head"><span>FIG. 002 / THE SERVICE BAY</span><span aria-hidden="true">↑↓</span></div>
+<div class="scene-head"><span>FIG. 002 / THE SERVICE BAY</span><span aria-hidden="true">↓</span></div>
 <svg viewBox="0 0 520 340" role="img" aria-labelledby="lift-title lift-description">
-<title id="lift-title">A sports coupe supported by a workshop lift</title><desc id="lift-description">An illustrative automotive service scene with a low sports coupe, sculpted bodywork, and alloy wheels. The car and lift platform rise together, pause at service height, and lower together.</desc>
-<ellipse data-lift-shadow cx="263" cy="314" rx="202" ry="13" fill="#53604b" opacity=".16"/>
+<title id="lift-title">A sports coupe held at service height on a two-post lift</title><desc id="lift-description">Four lift arms support the chassis at its lifting points, leaving the wheels hanging freely. The car and lift remain stationary while oil drains from the underside into a wheeled oil catcher below.</desc>
+<ellipse cx="263" cy="314" rx="202" ry="13" fill="#53604b" opacity=".1"/>
 <g class="scene-metals">
 <path d="m63 308 40-6 19 11-43 8Zm370-1 41-6 22 11-45 9Z" fill="#3b5140" stroke="#50664c"/>
 <path d="M73 58h22v250H73Z" fill="url(#darkSteel)" stroke="#596c52" stroke-width="2"/><path d="m95 58 10-5v250l-10 5Z" fill="#374f3c"/>
@@ -397,11 +397,40 @@
 <path d="M84 76v213m370-225v226" stroke="#a6b29a" stroke-width="3"/>
 <path d="M78 106h12m-12 40h12m-12 40h12m-12 40h12m353-131h12m-12 40h12m-12 40h12m-12 40h12" stroke="#3f5540" stroke-width="2"/>
 <rect x="68" y="182" width="17" height="28" rx="2" fill="#b65c35" stroke="#874b30"/><circle cx="76" cy="189" r="2" fill="#ded9b7"/><circle cx="76" cy="200" r="2" fill="#d7996d"/>
-<g data-service-lift transform="translate(0 0)">
-<path d="M94 256v29H75v-29m368-13v28h21v-28" fill="url(#steel)" stroke="#5f7256" stroke-width="2"/>
-<path d="m99 264 288-1 44 17-294 7Z" fill="#9ca991" stroke="#52694c" stroke-width="2"/>
-<path d="m137 287 294-7v10l-294 8Z" fill="#3e5940" stroke="#52694c"/><path d="m99 264 38 23v11l-38-22Z" fill="#647a58" stroke="#52694c"/>
-<path d="m141 288 12-1m10 1 12-1m12 1 12-1m12 1 12-1m12 1 12-1m12 1 12-1m12 0 12-1m12 0 12-1m12 0 12-1m12 0 12-1m12 0 12-1" stroke="#d49b61" stroke-width="4"/>
+<g data-service-lift transform="translate(0 -75)">
+<path d="M94 240v38H75v-38m368-11v38h21v-38" fill="url(#steel)" stroke="#5f7256" stroke-width="2"/>
+<path d="M79 246v25m6-25v25m363-35v25m6-25v25" stroke="#8b9a7d" stroke-width="1.4"/>
+<!-- Four pivoting, telescoping arms support chassis points rather than the tires. -->
+<g data-lift-arm>
+<path d="m94 247 45-18 63-2 2 8-62 4-45 17Z" fill="#697d5e" stroke="#435a40" stroke-width="1.5"/>
+<path d="m151 231 51-2" stroke="#bdc6af" stroke-width="3"/>
+<path d="M204 228v-5" stroke="#b7c2a5" stroke-width="5"/>
+<ellipse data-lift-pad cx="204" cy="222" rx="8" ry="3" fill="#293e2c" stroke="#7d906f"/>
+</g>
+<g data-lift-arm>
+<path d="m443 239-40-13-89-1-1 9 88 2 40 13Z" fill="#697d5e" stroke="#435a40" stroke-width="1.5"/>
+<path d="m388 229-73-1" stroke="#bdc6af" stroke-width="3"/>
+<path d="M313 227v-5" stroke="#b7c2a5" stroke-width="5"/>
+<ellipse data-lift-pad cx="313" cy="221" rx="8" ry="3" fill="#293e2c" stroke="#7d906f"/>
+</g>
+<g data-lift-arm>
+<path d="m94 243 42-1 66 7v7l-66-7-44 3Z" fill="#526d4d" stroke="#3f573d" stroke-width="1.6"/>
+<path d="m94 243 42-1 66 7v3l-66-7-43 2Z" fill="#9ba98b"/>
+<path d="m160 247 40 4" stroke="#c2ccb3" stroke-width="3"/>
+<path d="M202 252v-6" stroke="#bdc8ad" stroke-width="5"/>
+<ellipse data-lift-pad cx="202" cy="245" rx="9" ry="3" fill="#293e2c" stroke="#809371"/>
+<circle cx="135" cy="246" r="3" fill="#c0c9af" stroke="#536a49"/>
+<path d="m105 247h9m5-1h9" stroke="#d5a165" stroke-width="2.5"/>
+</g>
+<g data-lift-arm>
+<path d="m443 240-44 2-96 8v7l96-8 46-2Z" fill="#526d4d" stroke="#3f573d" stroke-width="1.6"/>
+<path d="m443 240-44 2-96 8v3l96-8 45-2Z" fill="#9ba98b"/>
+<path d="m371 247-66 6" stroke="#c2ccb3" stroke-width="3"/>
+<path d="M303 254v-6" stroke="#bdc8ad" stroke-width="5"/>
+<ellipse data-lift-pad cx="303" cy="247" rx="9" ry="3" fill="#293e2c" stroke="#809371"/>
+<circle cx="399" cy="246" r="3" fill="#c0c9af" stroke="#536a49"/>
+<path d="m412 245 9-1m5 0 9-1" stroke="#d5a165" stroke-width="2.5"/>
+</g>
 <defs>
 <linearGradient id="servicePaint" x1="0" y1="0" x2=".15" y2="1"><stop stop-color="#efbd8b"/><stop offset=".35" stop-color="#d98751"/><stop offset=".7" stop-color="#c36538"/><stop offset="1" stop-color="#8c4029"/></linearGradient>
 <linearGradient id="serviceHood" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#edb283"/><stop offset=".6" stop-color="#d5834e"/><stop offset="1" stop-color="#ba5933"/></linearGradient>
@@ -438,7 +467,7 @@
 <path d="m106 214 11-3 1 7-12 3Z" fill="#a3402a"/>
 <path d="m107 214 9-2" stroke="#f1b17d" stroke-width="1.2"/>
 <path d="m254 187-1-7 13-2 9 6-9 5Z" fill="#c77d4b" stroke="#8b5334"/>
-<!-- Low-profile tires and five-spoke alloy wheels; both contact the lift deck. -->
+<!-- Low-profile tires and five-spoke alloy wheels hang clear of the lift arms. -->
 <g fill="#27392c" stroke="#46513b" stroke-width="1.6"><ellipse cx="151" cy="240" rx="23" ry="26"/><ellipse cx="351" cy="241" rx="24" ry="26"/></g>
 <g fill="url(#serviceTrim)" stroke="#abb69d" stroke-width="1"><ellipse cx="154" cy="240" rx="17" ry="20"/><ellipse cx="354" cy="241" rx="18" ry="20"/></g>
 <g fill="#3e5140" stroke="#75856d" stroke-width=".8"><ellipse cx="154" cy="240" rx="13" ry="16"/><ellipse cx="354" cy="241" rx="14" ry="16"/></g>
@@ -450,10 +479,32 @@
 <g fill="#718267" stroke="#d0d6bf" stroke-width="1"><ellipse cx="154" cy="240" rx="4" ry="4.5"/><ellipse cx="354" cy="241" rx="4" ry="4.5"/></g>
 </g>
 </g>
+<!-- A wheeled oil drain catcher sits beneath the open center of the lift. -->
+<g data-oil-catcher stroke-linejoin="round">
+<ellipse cx="273" cy="313" rx="39" ry="5" fill="#42543b" opacity=".16"/>
+<path d="m243 305 30-4 30 10-31 5-29-8Z" fill="#415a3d" stroke="#3d5439"/>
+<g fill="#30432f" stroke="#788b69"><ellipse cx="251" cy="313" rx="5" ry="3.5"/><ellipse cx="294" cy="313" rx="5" ry="3.5"/><ellipse cx="274" cy="308" rx="4" ry="3"/></g>
+<path d="M248 282v21q24 12 49 0v-21Z" fill="url(#darkSteel)" stroke="#536c4b" stroke-width="1.5"/>
+<ellipse cx="272.5" cy="282" rx="24.5" ry="7" fill="#93a181" stroke="#526b49"/>
+<path d="M255 288v13m5-12v14" stroke="#a1af90" stroke-width="1.2" opacity=".55"/>
+<path d="M272 263v19" stroke="#415a3d" stroke-width="9"/><path d="M271 263v19" stroke="url(#steel)" stroke-width="5"/>
+<path d="m293 288 9 1 2 13-7 2" fill="none" stroke="#697d59" stroke-width="3"/>
+<rect x="266" y="292" width="14" height="8" rx="1" fill="#c7ccb3"/>
+<text x="273" y="298" text-anchor="middle" font-family="monospace" font-size="5" fill="#43553b">OIL</text>
+<path d="M235 247q4 18 38 23 34-5 38-23Z" fill="url(#steel)" stroke="#6a7d59" stroke-width="1.5"/>
+<ellipse cx="273" cy="247" rx="38" ry="10" fill="#a8b397" stroke="#637a55" stroke-width="1.5"/>
+<ellipse cx="273" cy="247" rx="31" ry="6.5" fill="#3f3525" stroke="#6b6246" stroke-width="1"/>
+<ellipse data-oil-ripple cx="273" cy="247" rx="6" ry="1.4" fill="none" stroke="#bc925b" stroke-width="1" opacity=".5"/>
+</g>
+<!-- The drain stream remains inside the catcher rim; only the oil moves. -->
+<path d="m267 170 12 1v5l-6 4-6-4Z" fill="#526448" stroke="#99a789" stroke-width="1"/>
+<path d="M273 179q-1 16 0 32t0 35" fill="none" stroke="#3f3222" stroke-width="2.6" stroke-linecap="round"/>
+<path data-oil-flow d="M273 179q-1 16 0 32t0 35" fill="none" stroke="#b08446" stroke-width="1" stroke-dasharray="5 9 2 11" stroke-linecap="round"/>
+<g fill="#c09a5a"><ellipse data-oil-drop cx="273" cy="191" rx="1.2" ry="2.2"/><ellipse data-oil-drop cx="273" cy="224" rx="1.2" ry="2.2"/></g>
+<path d="M235 247a38 10 0 0 0 76 0" fill="none" stroke="#bfc7aa" stroke-width="2"/>
 </g>
 <path d="M58 325h429" stroke="var(--muted)" stroke-width=".7" opacity=".45"/>
-<path d="M34 157v65m-5-58 5-7 5 7m-10 51 5 7 5-7" fill="none" stroke="var(--accent)" stroke-width="1"/>
-</svg><figcaption><span>PREVENTIVE MAINTENANCE / INSPECTION</span><span>WORKSHOP STUDY</span></figcaption></figure>
+</svg><figcaption><span>LIFTING POINTS / OIL SERVICE</span><span>WORKSHOP STUDY</span></figcaption></figure>
       <div class="service-roles">
         <article class="timeline-item">
           <div class="role-head"><h3>Quick Lube Technician</h3><span class="dates">Sep 2025 – Present</span></div>

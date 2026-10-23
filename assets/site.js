@@ -166,8 +166,9 @@
     type: element.dataset.workshopScene,
     visible: !('IntersectionObserver' in window),
     time: 0,
-    lift: element.querySelector('[data-service-lift]'),
-    shadow: element.querySelector('[data-lift-shadow]'),
+    oilFlow: element.querySelector('[data-oil-flow]'),
+    oilDrops: [...element.querySelectorAll('[data-oil-drop]')],
+    oilRipple: element.querySelector('[data-oil-ripple]'),
     workOrder: element.querySelector('[data-work-order]'),
     pad: element.querySelector('[data-polishing-pad]'),
     highlight: element.querySelector('[data-clean-highlight]')
@@ -308,10 +309,16 @@
     };
     const time = scene.time;
     if (scene.type === 'lift') {
-      const raised = time < 1 ? 0 : time < 4 ? ease((time - 1) / 3) : time < 7 ? 1 : time < 10 ? 1 - ease((time - 7) / 3) : 0;
-      // The platform and vehicle share one transform, preserving their support.
-      scene.lift.setAttribute('transform', `translate(0 ${(-70 * raised).toFixed(2)})`);
-      scene.shadow.setAttribute('opacity', (.16 - raised * .06).toFixed(3));
+      // The raised car and support arms stay fixed; motion is confined to the oil.
+      scene.oilFlow.setAttribute('stroke-dashoffset', (-time * 36).toFixed(2));
+      scene.oilDrops.forEach((drop, index) => {
+        const fall = (time * .75 + index / scene.oilDrops.length) % 1;
+        drop.setAttribute('cy', (180 + fall * 65).toFixed(2));
+      });
+      const ripple = (time * 1.5) % 1;
+      scene.oilRipple.setAttribute('rx', (5 + ripple * 14).toFixed(2));
+      scene.oilRipple.setAttribute('ry', (1.1 + ripple * 2.5).toFixed(2));
+      scene.oilRipple.setAttribute('opacity', (.6 * (1 - ripple)).toFixed(3));
     } else {
       const settle = time < 1.5 ? ease(time / 1.5) : time < 10 ? 1 : 1 - ease((time - 10) / 2);
       scene.workOrder.setAttribute('transform', `translate(0 ${(-10 * (1 - settle)).toFixed(2)})`);
