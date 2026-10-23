@@ -95,7 +95,12 @@
       $('modalTitle').textContent = title.textContent;
       title.remove();
       const detail = content.querySelector('details');
-      if (detail) detail.replaceWith(detail.querySelector('.bullets'));
+      if (detail) detail.replaceWith(...[...detail.childNodes].filter(node => node.nodeName !== 'SUMMARY'));
+      content.querySelectorAll('h4').forEach(heading => {
+        const promotedHeading = document.createElement('h3');
+        promotedHeading.textContent = heading.textContent;
+        heading.replaceWith(promotedHeading);
+      });
       $('modalContent').replaceChildren(content);
       $('modalEyebrow').textContent = `0${[...document.querySelectorAll('.project-card')].indexOf(source.parentElement) + 1} / Project notes`;
       projectOpener = opener;
@@ -147,7 +152,7 @@
     }
   });
 
-  // One scheduler handles both studies, and stops when they are off screen.
+  // One scheduler handles the engine, notebook, and automotive studies.
   let angle = .4;
   let speed = Number($('throttle').value);
   let sketch = 'linkage';
@@ -156,10 +161,21 @@
   let engineOptIn = false;
   let engineVisible = true;
   let sketchVisible = true;
+  const workshopScenes = [...document.querySelectorAll('[data-workshop-scene]')].map(element => ({
+    element,
+    type: element.dataset.workshopScene,
+    visible: !('IntersectionObserver' in window),
+    time: 0,
+    lift: element.querySelector('[data-service-lift]'),
+    shadow: element.querySelector('[data-lift-shadow]'),
+    workOrder: element.querySelector('[data-work-order]'),
+    pad: element.querySelector('[data-polishing-pad]'),
+    highlight: element.querySelector('[data-clean-highlight]')
+  }));
   let frameId = 0;
   let last = 0;
   const engineRunning = () => wantsEngine && (!paused || engineOptIn);
-  const hasMotion = () => !document.hidden && ((engineVisible && engineRunning()) || (sketchVisible && !paused));
+  const hasMotion = () => !document.hidden && ((engineVisible && engineRunning()) || (!paused && (sketchVisible || workshopScenes.some(scene => scene.visible))));
 
   function syncEngineControls() {
     const running = engineRunning();
@@ -249,12 +265,17 @@
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (entry.target.id === 'engine') engineVisible = entry.isIntersecting;
-        else sketchVisible = entry.isIntersecting;
+        else if (entry.target.id === 'drawingPanel') sketchVisible = entry.isIntersecting;
+        else {
+          const scene = workshopScenes.find(item => item.element === entry.target);
+          if (scene) scene.visible = entry.isIntersecting;
+        }
       }
       schedule();
     });
     observer.observe($('engine'));
     observer.observe($('drawingPanel'));
+    workshopScenes.forEach(scene => observer.observe(scene.element));
   }
 
   function animate(now) {
@@ -272,8 +293,34 @@
         sketchTime += dt * .85;
         drawSketch();
       }
+      if (!paused) workshopScenes.filter(scene => scene.visible).forEach(scene => {
+        scene.time = (scene.time + dt) % 12;
+        drawWorkshopScene(scene);
+      });
     }
     frameId = requestAnimationFrame(animate);
+  }
+
+  function drawWorkshopScene(scene) {
+    const ease = value => {
+      const bounded = Math.max(0, Math.min(1, value));
+      return bounded * bounded * (3 - 2 * bounded);
+    };
+    const time = scene.time;
+    if (scene.type === 'lift') {
+      const raised = time < 1 ? 0 : time < 4 ? ease((time - 1) / 3) : time < 7 ? 1 : time < 10 ? 1 - ease((time - 7) / 3) : 0;
+      // The platform and vehicle share one transform, preserving their support.
+      scene.lift.setAttribute('transform', `translate(0 ${(-70 * raised).toFixed(2)})`);
+      scene.shadow.setAttribute('opacity', (.16 - raised * .06).toFixed(3));
+    } else {
+      const settle = time < 1.5 ? ease(time / 1.5) : time < 10 ? 1 : 1 - ease((time - 10) / 2);
+      scene.workOrder.setAttribute('transform', `translate(0 ${(-10 * (1 - settle)).toFixed(2)})`);
+      scene.workOrder.setAttribute('opacity', (.5 + settle * .5).toFixed(3));
+      const pass = time < 3 ? 0 : time < 7 ? ease((time - 3) / 4) : time < 9 ? 1 : 1 - ease((time - 9) / 3);
+      scene.pad.setAttribute('transform', `translate(${(175 + 85 * pass).toFixed(2)} ${(244 - 6 * pass).toFixed(2)})`);
+      const sheen = time > 5 && time < 10 ? Math.sin((time - 5) / 5 * Math.PI) * .7 : 0;
+      scene.highlight.setAttribute('opacity', sheen.toFixed(3));
+    }
   }
 
   function line(x1,y1,x2,y2,w=2,extra=''){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="currentColor" stroke-width="${w}" ${extra}/>`}function circle(x,y,r=5){return `<circle cx="${x}" cy="${y}" r="${r}" fill="var(--paper)" stroke="currentColor" stroke-width="1.6"/>`}function txt(x,y,s){return `<text x="${x}" y="${y}" fill="currentColor" font-size="10" font-family="monospace">${s}</text>`}
